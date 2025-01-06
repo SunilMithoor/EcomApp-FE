@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IoClose, IoMenu } from "react-icons/io5";
+
+import "./assets/styles/App.css";
 import "./Navbar.css";
+
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -87,4 +90,6 @@ const Navbar = () => {
   );
 };
 
+
 export default Navbar;
+

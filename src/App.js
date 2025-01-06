@@ -9,7 +9,7 @@ const App = () => {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/news" element={<News />} />
+          <Route path="/phones" element={<Phones />} />
           {/* Define other routes that you need*/}
         </Routes>
       </main>
