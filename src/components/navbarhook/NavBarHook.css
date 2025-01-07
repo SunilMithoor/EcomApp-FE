@@ -229,7 +229,7 @@
 
   .nav__link {
     font-size: 18px; /* Increase font size for links */
-    line-height: 1; /* Reduce line gap */
+    line-height: 2; /* Reduce line gap */
     padding: 8px 10px; /* Optional: Adjust padding for individual links */
   }
 
