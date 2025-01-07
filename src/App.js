@@ -1,6 +1,20 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import logo from "./assets/images/ecom.svg";
 import "./assets/styles/App.css";
 
+<<<<<<< HEAD
+=======
+import Navbar from "./components/navbar/NavBar.js";
+import NavbarHook from "./components/navbarhook/NavBarHook.js";
+import Home from "./layouts/home/Home.js";
+import Phones from "./layouts/phones/Phones.js";
+import Audio from "./layouts/audio/Audio.js";
+import Wearables from "./layouts/wearables/Wearables.js";
+import Accessories from "./layouts/accessories/Accessories.js";
+import Tablets from "./layouts/tablets/Tablets.js";
+
+>>>>>>> development
 const App = () => {
   return (
     <Router>
@@ -10,6 +24,13 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/phones" element={<Phones />} />
+<<<<<<< HEAD
+=======
+          <Route path="/wearables" element={<Wearables />} />
+          <Route path="/audio" element={<Audio />} />
+          <Route path="/accessories" element={<Accessories />} />
+          <Route path="/tablets" element={<Tablets />} />
+>>>>>>> development
           {/* Define other routes that you need*/}
         </Routes>
       </main>

@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IoClose, IoMenu } from "react-icons/io5";
 
+<<<<<<< HEAD
 import "./assets/styles/App.css";
 import "./Navbar.css";
 
+=======
+import "../navbar/NavBar.css";
+>>>>>>> development
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -31,39 +35,73 @@ const Navbar = () => {
         >
           <ul className="nav__list">
             <li className="nav__item">
+<<<<<<< HEAD
               <NavLink to="/" className="nav__link" onClick={closeMenuOnMobile}>
                 Home
+=======
+              <NavLink
+                to="/phones"
+                className="nav__link"
+                onClick={closeMenuOnMobile}
+              >
+                Phone
+>>>>>>> development
               </NavLink>
             </li>
             <li className="nav__item">
               <NavLink
+<<<<<<< HEAD
                 to="/news"
                 className="nav__link"
                 onClick={closeMenuOnMobile}
               >
                 News
+=======
+                to="/tablets"
+                className="nav__link"
+                onClick={closeMenuOnMobile}
+              >
+                Tablet
+>>>>>>> development
               </NavLink>
             </li>
             <li className="nav__item">
               <NavLink
+<<<<<<< HEAD
                 to="/about-us"
                 className="nav__link"
                 onClick={closeMenuOnMobile}
               >
                 About Us
+=======
+                to="/wearables"
+                className="nav__link"
+                onClick={closeMenuOnMobile}
+              >
+                Wearables
+>>>>>>> development
               </NavLink>
             </li>
             <li className="nav__item">
               <NavLink
+<<<<<<< HEAD
                 to="/favorite"
                 className="nav__link"
                 onClick={closeMenuOnMobile}
               >
                 Favorite
+=======
+                to="/audio"
+                className="nav__link"
+                onClick={closeMenuOnMobile}
+              >
+                Audio
+>>>>>>> development
               </NavLink>
             </li>
             <li className="nav__item">
               <NavLink
+<<<<<<< HEAD
                 to="/location"
                 className="nav__link"
                 onClick={closeMenuOnMobile}
@@ -74,6 +112,13 @@ const Navbar = () => {
             <li className="nav__item">
               <NavLink to="/get-started" className="nav__link nav__cta">
                 Get Started
+=======
+                to="/accessories"
+                className="nav__link"
+                onClick={closeMenuOnMobile}
+              >
+                Accessories
+>>>>>>> development
               </NavLink>
             </li>
           </ul>
@@ -90,6 +135,10 @@ const Navbar = () => {
   );
 };
 
+<<<<<<< HEAD
 
 export default Navbar;
 
+=======
+export default Navbar;
+>>>>>>> development

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .header {
     position: fixed;
     width: 100%;
@@ -74,3 +75,173 @@
     list-style-type: none;
     padding: 0;
   }
+=======
+/* General Header Styling */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff; /* Light grey background */
+  z-index: 1000; /* Ensure header appears on top */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 0.25rem 0.5rem; /* Reduced padding */
+}
+
+.nav {
+  display: flex;
+  align-items: center; /* Vertically center logo and nav items */
+  justify-content: flex-start; /* Align items to the left */
+  height: 50px; /* Reduced navbar height */
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center; /* Center logo vertically */
+  font-size: 1rem; /* Reduced font size */
+  font-family: var(--second-font, sans-serif); /* Fallback font */
+  text-decoration: none;
+  margin-right: 8rem; /* Adjusted space after the logo */
+}
+
+.nav__logo-image {
+  height: 30px; /* Reduced logo height */
+  width: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the image fits within bounds */
+}
+
+/* Desktop Navigation List */
+.nav__list__web {
+  display: flex;
+  flex-direction: row; /* Horizontal layout */
+  align-items: center; /* Vertically center links */
+  column-gap: 1.5rem; /* Reduced space between nav items */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  flex-grow: 1; /* Push items to the left */
+}
+
+.nav__link {
+  color: var(--title-color, #000); /* Default color for links */
+  font-weight: 600; /* Semi-bold font */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.nav__link:hover {
+  color: var(--first-color, #e9333c); /* Highlight color on hover */
+  border-bottom: 2px solid #e9333c;
+}
+
+.nav__cta {
+  background-color: var(--first-color, #007bff); /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 0.5rem 1.25rem; /* Reduced padding */
+  margin-left: auto; /* Add spacing at the end */
+}
+
+.nav__cta:hover {
+  background-color: var(--first-color-hover, #0056b3); /* Darker hover color */
+}
+
+/* Hamburger Menu Toggle */
+.nav__toggle {
+  font-size: 1.25rem; /* Reduced font size */
+  color: var(--title-color, #000);
+  cursor: pointer;
+  display: none; /* Hidden by default, shown on smaller screens */
+  position: absolute;
+  right: 1rem; /* Position it on the right for mobile view */
+}
+
+/* Mobile Menu Styling */
+.nav__menu {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Initially hidden off-screen */
+  width: 70%; /* Adjust menu width */
+  height: 100%;
+  background-color: #fff; /* Background for the menu */
+  transition: right 0.3s ease; /* Smooth transition */
+  box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 1rem; /* Adjusted padding inside menu */
+  z-index: 1100; /* Above other elements */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.nav__menu.show-menu {
+  right: 0; /* Show the menu when open */
+}
+
+.nav__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: var(--title-color, #000);
+  cursor: pointer;
+}
+
+.nav__link {
+  margin-bottom: 1rem; /* Add spacing between links in mobile view */
+}
+
+.nav__icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Space between icons */
+  margin-left: auto; /* Push icons to the right */
+  margin-right: 1rem;
+}
+
+.nav__icon {
+  font-size: 1.5rem; /* Adjust icon size */
+  color: var(--title-color, #000); /* Icon color */
+  cursor: pointer;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.nav__icon:hover {
+  color: var(--first-color, #007bff); /* Highlight color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1150px) {
+  .nav__list__web {
+    display: none; /* Hide desktop menu */
+  }
+
+  .nav__list {
+    list-style-type: none; /* Removes bullets */
+    padding: 0; /* Optional: Removes any default padding */
+  }
+
+  .nav__list li {
+    margin: 5px 0; /* Adjust margin to reduce spacing between items */
+  }
+
+  .nav__link {
+    font-size: 18px; /* Increase font size for links */
+    line-height: 1; /* Reduce line gap */
+    padding: 8px 10px; /* Optional: Adjust padding for individual links */
+  }
+
+  .nav__toggle {
+    display: block; /* Show hamburger menu */
+  }
+
+  .nav__icons {
+    margin-left: 0;
+    margin-top: 1rem; /* Space between links and icons */
+    justify-content: center;
+    width: 100%;
+  }
+}
+>>>>>>> development

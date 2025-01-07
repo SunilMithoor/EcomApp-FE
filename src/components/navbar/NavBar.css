@@ -1,6 +1,7 @@
 /* Navbar.css */
 
 .header {
+<<<<<<< HEAD
     position: fixed;
     width: 100%;
     top: 0;
@@ -137,6 +138,8 @@
     }
   }
 =======
+=======
+>>>>>>> development
   position: fixed;
   width: 100%;
   top: 0;
@@ -272,4 +275,7 @@
     column-gap: 2.5rem;
   }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
