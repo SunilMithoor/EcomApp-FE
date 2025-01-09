@@ -101,13 +101,13 @@
   font-size: 1rem; /* Reduced font size */
   font-family: var(--second-font, sans-serif); /* Fallback font */
   text-decoration: none;
-  margin-right: 8rem; /* Adjusted space after the logo */
+  margin-right: 4rem; /* Adjusted space after the logo */
 }
 
 .nav__logo-image {
-  height: 30px; /* Reduced logo height */
-  width: auto; /* Maintain aspect ratio */
-  object-fit: contain; /* Ensure the image fits within bounds */
+  width: 80px; /* Adjust the width of the logo */
+  height: auto; /* Maintain aspect ratio */
+  padding: 2px; /* Add spacing around the image */
 }
 
 /* Desktop Navigation List */
@@ -135,7 +135,7 @@
 }
 
 .nav__cta {
-  background-color: var(--first-color, #007bff); /* Button background color */
+  background-color: var(--first-color, #e9333c); /* Button background color */
   color: #fff; /* Button text color */
   border: none;
   border-radius: 4px;
@@ -146,7 +146,7 @@
 }
 
 .nav__cta:hover {
-  background-color: var(--first-color-hover, #0056b3); /* Darker hover color */
+  background-color: var(--first-color-hover, #e9333c); /* Darker hover color */
 }
 
 /* Hamburger Menu Toggle */
@@ -209,7 +209,7 @@
 }
 
 .nav__icon:hover {
-  color: var(--first-color, #007bff); /* Highlight color on hover */
+  color: var(--first-color, #e9333c); /* Highlight color on hover */
 }
 
 /* Responsive Design */
@@ -242,6 +242,19 @@
     margin-top: 1rem; /* Space between links and icons */
     justify-content: center;
     width: 100%;
+  }
+
+  .nav__list__mobile {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .nav__list__mobile li {
+    padding: 10px 0;
   }
 }
 >>>>>>> development

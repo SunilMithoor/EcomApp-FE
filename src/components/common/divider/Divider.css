@@ -1,0 +1,26 @@
+.divider {
+  border: none;
+  border-top: 21px solid #ccc; /* Set the divider color and thickness */
+  margin: 1px 0; /* Add space around the divider */
+}
+
+.divider.thin {
+  border-top: 1px solid #ccc; /* Thin divider */
+}
+
+.divider.bold {
+  border-top: 3px solid #333; /* Bold divider */
+}
+
+.divider.extrabold {
+  height: 4px;
+  background-color: #ccc; /* Black color for a thicker divider */
+}
+
+.divider.dotted {
+  border-top: 2px dotted #ccc; /* Dotted line divider */
+}
+
+.divider.dashed {
+  border-top: 2px dashed #ccc; /* Dashed divider */
+}

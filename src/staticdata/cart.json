@@ -1,0 +1,66 @@
+{
+    "success": true,
+    "message": "Cart items",
+    "data":  [
+        {
+          "id": 1,
+          "name": "Lorem ipsum, placeholder or dummy text",
+          "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          "price": 10.99,
+          "mrp": 100.99,
+          "rating":4.2,
+          "imgUrl":"https://yavuzceliker.github.io/sample-images/image-1.jpg",
+          "totalRatings":234324,
+          "minItem":1,
+          "maxItem":10
+        },
+        {
+          "id": 2,
+          "name": "Lorem ipsum, placeholder or dummy text",
+          "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
+          "price": 14.99,
+          "mrp": 100.99,
+          "rating":3,
+          "imgUrl":"https://yavuzceliker.github.io/sample-images/image-1.jpg",
+          "totalRatings":325523,
+          "minItem":1,
+          "maxItem":10
+        },
+        {
+          "id": 3,
+          "name": "Item 3",
+          "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
+          "price": 79.99,
+          "mrp": 100.99,
+          "rating":2.3,
+          "imgUrl":"https://yavuzceliker.github.io/sample-images/image-1.jpg",
+          "totalRatings":5235325,
+          "minItem":1,
+          "maxItem":10
+        },
+        {
+          "id": 4,
+          "name": "Lorem ipsum, placeholder or dummy text",
+          "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
+          "price": 59.99,
+          "mrp": 150,
+          "rating":1.9,
+          "imgUrl":"https://yavuzceliker.github.io/sample-images/image-1.jpg",
+          "totalRatings":32423,
+          "minItem":1,
+          "maxItem":10
+        },
+        {
+          "id": 5,
+          "name": "Item 5",
+          "price": 39.99,
+          "mrp": 200,
+          "rating":2.5,
+          "imgUrl":"https://yavuzceliker.github.io/sample-images/image-1.jpg",
+          "totalRatings":56756,
+          "minItem":1,
+          "maxItem":10
+        }
+      ]
+    }
+

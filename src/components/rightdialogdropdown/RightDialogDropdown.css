@@ -1,0 +1,39 @@
+.nav__icons {
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+
+.sub-screen {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 30%;
+  height: 50vh;
+  padding: 10px;
+  background-color: #eceff1;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: left top;
+  text-align: left;
+  overflow: hidden; /* Prevent content from overflowing */
+}
+
+.sub__link {
+  text-decoration: none;
+  color: var(--first-color, #007bff);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav__icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.nav__icon {
+  font-size: 20px;
+}
