@@ -1,0 +1,52 @@
+.rating-container {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-family: Arial, sans-serif;
+}
+
+.stars {
+  display: flex;
+  position: relative;
+}
+
+.star {
+  font-size: 1rem;
+  position: relative;
+  color: #ddd; /* Default color for empty stars */
+}
+
+.star.full {
+  color: #efb923; /* Gold color for full stars */
+}
+
+.star.half {
+  color: #ddd; /* Default background color */
+}
+
+.star.half::before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #efb923; /* Gold color for half star */
+  width: 50%;
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* .star:hover,
+.star:hover ~ .star {
+  color: #ddd;
+} */
+
+.total-count {
+  font-size: 14px;
+  color: #555;
+}
+
+.rating-count {
+  font-size: 15px;
+  font-weight: bold;
+  color: #555;
+}
