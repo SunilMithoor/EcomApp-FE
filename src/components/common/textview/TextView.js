@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./TextView.css";
 
-const TextView = ({ text, color, size, textStyle }) => {
+const TextView = ({ text, color, size, textStyle, onClick }) => {
   return (
     <div
       className="text_view"
@@ -12,6 +12,7 @@ const TextView = ({ text, color, size, textStyle }) => {
         fontSize: `${size}px`,
         fontStyle: textStyle,
       }}
+      onClick={onClick}
     >
       {text}
     </div>

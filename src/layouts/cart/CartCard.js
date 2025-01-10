@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Cart.css";
 import Rating from "../../components/rating/Rating.js";
-import { IoPricetag } from "react-icons/io5";
+import { IoPricetag, IoTrashBinSharp } from "react-icons/io5";
 import Button from "../../components/common/button/Button.js";
 import Divider from "../../components/common/divider/Divider.js";
 import TextViewWithClose from "../../components/common/textviewwithclose/TextViewWithClose.js";
@@ -9,7 +9,14 @@ import CouponCode from "../../components/common/couponcode/CouponCode.js";
 import TextView from "../../components/common/textview/TextView.js";
 
 const GetCartCard = ({ data }) => {
-  const items = Array.isArray(data) ? data : [];
+  const [items, setCartItems] = useState(Array.isArray(data) ? data : []);
+  const [appliedCoupon, setAppliedCoupon] = useState("");
+  const [couponMessage, setCouponMessage] = useState("");
+
+  // State to store total amount, MRP and discount percentage
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [totalMrp, setTotalMrp] = useState(0);
+  const [totalPercentage, setPercentage] = useState(0);
 
   // State to store quantity for each item
   const [quantities, setQuantities] = useState(
@@ -19,6 +26,12 @@ const GetCartCard = ({ data }) => {
     }, {})
   );
 
+  // Recalculate totals when quantities change
+  useEffect(() => {
+    console.log("Quantities updated:", quantities);
+    updateTotals(quantities, appliedCoupon);
+  }, [quantities, items, appliedCoupon]);
+
   // Decrease the quantity of an item
   const decreaseQuantity = (itemId, minItem) => {
     setQuantities((prevQuantities) => {
@@ -26,7 +39,7 @@ const GetCartCard = ({ data }) => {
         ...prevQuantities,
         [itemId]: Math.max(prevQuantities[itemId] - 1, minItem),
       };
-      updateTotals(newQuantities);
+      updateTotals(newQuantities, appliedCoupon);
       return newQuantities;
     });
   };
@@ -38,83 +51,87 @@ const GetCartCard = ({ data }) => {
         ...prevQuantities,
         [itemId]: Math.min(prevQuantities[itemId] + 1, maxItem),
       };
-      updateTotals(newQuantities);
+      updateTotals(newQuantities, appliedCoupon);
       return newQuantities;
     });
   };
 
-  // Calculate the totals based on the current quantities
-  const updateTotals = (quantities) => {
-    let newTotalAmount = 0;
-    let newTotalMrp = 0;
-
-    items.forEach((item) => {
-      const quantity = quantities[item.id];
-      newTotalAmount += item.price * quantity;
-      newTotalMrp += item.mrp * quantity;
-    });
-
-    // Apply coupon discount if a coupon is applied
-    if (appliedCoupon === "DISCOUNT20") {
-      newTotalAmount = newTotalAmount * 0.8; // Apply 20% discount
-    }
-
-    setTotalAmount(newTotalAmount);
-    setTotalMrp(newTotalMrp);
-
-    // Calculate discount percentage
-    if (newTotalMrp > 0) {
-      const discountPercentage =
-        ((newTotalMrp - newTotalAmount) / newTotalMrp) * 100;
-      setPercentage(discountPercentage.toFixed(2));
-    }
-  };
-
-  // Recalculate totals when quantities change
-  useEffect(() => {
-    updateTotals(quantities);
-  }, [quantities]);
-
-  const [appliedCoupon, setAppliedCoupon] = useState("");
-  const [couponMessage, setCouponMessage] = useState("");
-
   const handleApplyCoupon = (code) => {
+    console.log("Applying coupon:", code);
+
     if (appliedCoupon === code) {
       setCouponMessage(`Coupon "${code}" is already applied.`);
-      if (code === "DISCOUNT20") {
-        updateTotals(quantities);
-      }
-    } else {
-      // Reset the applied coupon first to force re-render
-      setAppliedCoupon("");
-      setTimeout(() => {
-        setAppliedCoupon(code);
-        setCouponMessage(`Coupon "${code}" applied successfully.`);
-      }, 0);
+      console.log("Coupon already applied.");
     }
 
-    // Clear the message after 5 seconds
+    setAppliedCoupon("");
+    setCouponMessage("");
+
+    setTimeout(() => {
+      setAppliedCoupon(code);
+      setCouponMessage(`Coupon "${code}" applied successfully.`);
+      console.log("Coupon applied successfully.");
+      updateTotals(quantities, code);
+    }, 100);
+
     setTimeout(() => {
       setCouponMessage("");
     }, 3000);
   };
 
   const handleRemoveCoupon = () => {
-    setCouponMessage(`Coupon "${appliedCoupon}" removed.`);
-    setAppliedCoupon("");
-    updateTotals(quantities); // Recalculate totals without the coupon
-    // Clear the message after 5 seconds
+    const previousCoupon = appliedCoupon; // Save the current coupon for the message
+    setAppliedCoupon(""); // Reset applied coupon
+
+    // Set the coupon removal message immediately
+    setCouponMessage(`Coupon "${previousCoupon}" removed.`);
+
+    // Recalculate totals with no coupon applied
+    updateTotals(quantities, "");
+
+    // Clear the coupon message after 3 seconds
     setTimeout(() => {
-      setCouponMessage("");
+      setCouponMessage(""); // Reset the coupon message after timeout
     }, 3000);
   };
 
-  const handleCheckOut = () => {};
+  const removeItem = (itemId) => {
+    const updatedItems = items.filter((item) => item.id !== itemId);
+    setCartItems(updatedItems);
 
-  // State to store total amount, MRP and discount percentage
-  const [totalAmount, setTotalAmount] = useState(0);
-  const [totalMrp, setTotalMrp] = useState(0);
-  const [totalPercentage, setPercentage] = useState(0);
+    const updatedQuantities = { ...quantities };
+    delete updatedQuantities[itemId];
+    setQuantities(updatedQuantities);
+  };
+
+  // Calculate the totals based on the current quantities
+  const updateTotals = (quantities, coupon = appliedCoupon) => {
+    let newTotalAmount = 0;
+    let newTotalMrp = 0;
+
+    items.forEach((item) => {
+      const quantity = quantities[item.id] || 0;
+      newTotalAmount += item.price * quantity;
+      newTotalMrp += item.mrp * quantity;
+    });
+
+    // Apply coupon discount if a coupon is passed
+    if (coupon === "DIS20") {
+      newTotalAmount *= 0.8; // Apply 20% discount
+    }
+
+    // Calculate discount percentage
+    const discountPercentage =
+      newTotalMrp > 0
+        ? ((newTotalMrp - newTotalAmount) / newTotalMrp) * 100
+        : 0;
+
+    setTotalAmount(newTotalAmount);
+    setTotalMrp(newTotalMrp);
+    setPercentage(discountPercentage.toFixed(2));
+  };
+
+  const handleCheckOut = () => {};
 
   return (
     <div className="cart">
@@ -177,27 +194,41 @@ const GetCartCard = ({ data }) => {
 
                       <p className="card-mrp">₹ {item.mrp.toFixed(2)}</p>
 
-                      {/* Quantity */}
-                      <div className="quantity-container">
-                        <button
-                          className="quantity-btn"
-                          onClick={() =>
-                            decreaseQuantity(item.id, item.minItem)
-                          }
-                          disabled={quantities[item.id] <= item.minItem}
-                        >
-                          -
-                        </button>
-                        <span className="quantity">{quantities[item.id]}</span>
-                        <button
-                          className="quantity-btn"
-                          onClick={() =>
-                            increaseQuantity(item.id, item.maxItem)
-                          }
-                          disabled={quantities[item.id] >= item.maxItem}
-                        >
-                          +
-                        </button>
+                      <div className="card-quantity_list">
+                        {/* Quantity */}
+                        <div className="quantity-container">
+                          <button
+                            className="quantity-btn"
+                            onClick={() =>
+                              decreaseQuantity(item.id, item.minItem)
+                            }
+                            disabled={quantities[item.id] <= item.minItem}
+                          >
+                            -
+                          </button>
+                          <span className="quantity">
+                            {quantities[item.id]}
+                          </span>
+                          <button
+                            className="quantity-btn"
+                            onClick={() =>
+                              increaseQuantity(item.id, item.maxItem)
+                            }
+                            disabled={quantities[item.id] >= item.maxItem}
+                          >
+                            +
+                          </button>
+                        </div>
+                        <IoTrashBinSharp
+                          style={{
+                            marginLeft: "3px",
+                            marginTop: "3px",
+                            marginBottom: "3px",
+                            marginRight: "3px",
+                            alignItems: "centre",
+                          }}
+                          onClick={() => removeItem(item.id)}
+                        />
                       </div>
                     </div>
                   </div>
