@@ -1,53 +1,63 @@
 import React from "react";
 import useFetchCartItems from "../../hooks/useFetchCart";
 import CartCard from "./CartCard";
-import "./Cart.css";
-import BouncingDotsLoader from "../../components/loaders/bouncingDotLoader/BouncingDotsLoader";
-import NoData from "../../components/nodata/NoData";
-import GetCartCard from "./ShoppingCart";
+import NoData from "../../components/common/nodataavailable/NoDataCustom";
+import BouncingDotsLoader from "../../components/common/loaders/BouncingDotsLoader";
+import { Box, Alert } from "@mui/material";
+import message from "../../constants/message";
 
 const GetCartItems = () => {
   const { data, isLoading, error } = useFetchCartItems();
 
   // Normalize cartItems to an empty array if null
-  var cartItems = "";
+  let cartItems = [];
   if (data.success === true) {
     cartItems = data.data || [];
-  } else {
-    cartItems = [];
   }
 
   return (
-    <div className="cart-container">
-      {/* Main Content */}
-      <div className="cart-container">
-        {/* Loading UI */}
-        {isLoading && (
-          <div className="loading-container">
-            <BouncingDotsLoader />
-          </div>
-        )}
-        {/* Error UI */}
-        {!isLoading && error && (
-          <div className="error-container">
-            <NoData message={data.message} />
-          </div>
-        )}
+    <Box sx={{ padding: 2 }}>
+      {/* Loading UI */}
+      {isLoading && (
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          height="100vh"
+        >
+          <BouncingDotsLoader />
+        </Box>
+      )}
 
-        {/* No Data UI */}
-        {!isLoading && !error && cartItems.length === 0 && (
-          <div className="error-container">
-            <NoData message={data.message} />
-          </div>
-        )}
+      {/* Error UI */}
+      {!isLoading && error && (
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          height="100vh"
+        >
+          <Alert severity="error">{data.message}</Alert>
+        </Box>
+      )}
 
-        {/* Success UI */}
-        {!isLoading && !error && cartItems.length > 0 && (
-          <CartCard data={cartItems} />
-          // <GetCartCard data={cartItems} />
-        )}
-      </div>
-    </div>
+      {/* No Data UI */}
+      {!isLoading && !error && cartItems.length === 0 && (
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          height="100vh"
+        >
+          <NoData message={data.message} />
+        </Box>
+      )}
+
+      {/* Success UI */}
+      {!isLoading && !error && cartItems.length > 0 && (
+        <CartCard data={cartItems} />
+      )}
+    </Box>
   );
 };
 

@@ -1,27 +1,22 @@
 import React, { useState, useEffect } from "react";
-import "./Cart.css";
-import Rating from "../../components/rating/Rating.js";
-import { IoTrashBinSharp } from "react-icons/io5";
+import Rating from "../../components/common/rating/Rating.js";
 import Button from "../../components/common/button/Button.js";
 import Divider from "../../components/common/divider/Divider.js";
 import TextViewWithClose from "../../components/common/textview/TextViewWithClose.js";
 import CouponCode from "../../components/common/couponcode/CouponCode.js";
-import TextView from "../../components/common/textview/TextView.js";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ExpandableText from "../../components/common/textview/ExpandableText.js";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import DeleteIcon from "@mui/icons-material/Delete";
+import message from "../../constants/message.js";
 
 import {
-  Card,
   CardContent,
   CardMedia,
   Typography,
   IconButton,
   Box,
-  TextField,
-  Chip,
 } from "@mui/material";
 
 const GetCartCard = ({ data }) => {
@@ -44,7 +39,6 @@ const GetCartCard = ({ data }) => {
 
   // Recalculate totals when quantities change
   useEffect(() => {
-    console.log("Quantities updated:", quantities);
     // Only update totals if the quantities have changed or the coupon has been applied
     if (quantities && appliedCoupon !== undefined) {
       updateTotals(quantities, appliedCoupon);
@@ -80,11 +74,8 @@ const GetCartCard = ({ data }) => {
   };
 
   const handleApplyCoupon = (code) => {
-    console.log("Applying coupon:", code);
-
     if (appliedCoupon === code) {
-      setCouponMessage(`Coupon "${code}" is already applied.`);
-      console.log("Coupon already applied.");
+      setCouponMessage(message.coupon_already_applied(code));
     }
 
     setAppliedCoupon("");
@@ -92,8 +83,7 @@ const GetCartCard = ({ data }) => {
 
     setTimeout(() => {
       setAppliedCoupon(code);
-      setCouponMessage(`Coupon "${code}" applied successfully.`);
-      console.log("Coupon applied successfully.");
+      setCouponMessage(message.coupon_applied_successfully(code));
       updateTotals(quantities, code);
     }, 100);
 
@@ -107,7 +97,7 @@ const GetCartCard = ({ data }) => {
     setAppliedCoupon(""); // Reset applied coupon
 
     // Set the coupon removal message immediately
-    setCouponMessage(`Coupon "${previousCoupon}" removed.`);
+    setCouponMessage(message.coupon_removed(previousCoupon));
 
     // Recalculate totals with no coupon applied
     updateTotals(quantities, "");
@@ -157,9 +147,15 @@ const GetCartCard = ({ data }) => {
   const handleCheckOut = () => {};
 
   return (
-    <Box p={2}>
+    <Box
+      p={2}
+      sx={{
+        marginTop: 10,
+        marginBottom: 1,
+      }}
+    >
       <Typography variant="h4" fontWeight="bold">
-        Shopping Cart
+        {message.shopping_cart}
       </Typography>
 
       <Box display="flex" flexDirection={{ xs: "column", md: "row" }} gap={2}>
@@ -171,100 +167,115 @@ const GetCartCard = ({ data }) => {
               padding: "5px", // Make the text bold
             }}
           >
-            {items.length} items in cart
+            {message.items_count(items.length)}
           </Typography>
 
-          {items.map((item, index) => (
-            <React.Fragment key={item.id}>
-              <Box
-                key={item.id}
-                alignItems="flex-start" // Align items to the top horizontally
-                justifyContent="flex-start" // Align items to the top vertically
-                sx={{
-                  marginTop: 1,
-                  marginBottom: 1,
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                }}
-                display="flex"
-              >
+          <Box
+            display="flex"
+            sx={{
+              border: "1px solid #ccc",
+            }}
+            flexDirection="column"
+            gap={1}
+          >
+            {items.map((item, index) => (
+              <React.Fragment key={item.id}>
                 <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center", // Centers horizontally
-                    alignItems: "center", // Centers vertically
-                    height: "100%", // Ensure parent container has height
-                  }}
-                >
-                  <CardMedia
-                    component="img"
-                    image={item.imgUrl}
-                    alt={item.name || "No image available"}
-                    loading="lazy"
-                    sx={{
-                      width: 120,
-                      height: 140,
-                      objectFit: "cover", // Ensures the image covers the entire box
-                    }}
-                  />
-                </Box>
-                <CardContent
-                  sx={{
-                    flex: 1,
-                    display: "flex", // Use flexbox
-                    flexDirection: "column", // Stack children vertically
-                    alignItems: "flex-start", // Align items to the start (left for LTR)
-                    justifyContent: "flex-start", // Align items to the top
-                  }}
-                >
-                  <Typography variant="h6">{item.name}</Typography>
-
-                  <ExpandableText
-                    text={item.description || "No description available."}
-                    maxLines={2}
-                  />
-
-                  <Rating
-                    totalRatings={item.totalRatings}
-                    rating={item.rating}
-                    readOnly
-                  />
-                </CardContent>
-
-                <Box
-                  display="flex"
-                  flexDirection="column"
-                  alignItems="flex-end" // Align items to the end horizontally
+                  flexDirection={{ xs: "column", md: "row" }}
+                  key={item.id}
+                  alignItems="flex-start" // Align items to the top horizontally
                   justifyContent="flex-start" // Align items to the top vertically
-                  sx={{ p: 2 }}
+                  sx={{
+                    margin: 1,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                  display="flex"
                 >
-                  <Typography variant="h5">
-                    ₹{item.price.toFixed(2)}{" "}
-                    <LocalOfferIcon style={{ verticalAlign: "middle" }} />
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{ textDecoration: "line-through" }}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center", // Centers horizontally
+                      alignItems: "center", // Centers vertically
+                      height: "100%", // Ensure parent container has height
+                    }}
                   >
-                    ₹{item.mrp.toFixed(2)}
-                    <LocalOfferIcon
-                      style={{
-                        marginLeft: "8px",
-                        verticalAlign: "middle",
-                        color: "#ffffff", // Set the color to white
+                    <CardMedia
+                      component="img"
+                      image={item.imgUrl}
+                      alt={item.name || "No image available"}
+                      loading="lazy"
+                      sx={{
+                        width: 120,
+                        height: 140,
+                        objectFit: "cover", // Ensures the image covers the entire box
                       }}
                     />
-                  </Typography>
+                  </Box>
+                  <CardContent
+                    sx={{
+                      flex: 1,
+                      display: "flex", // Use flexbox
+                      flexDirection: "column", // Stack children vertically
+                      alignItems: "flex-start", // Align items to the start (left for LTR)
+                      justifyContent: "flex-start", // Align items to the top
+                      paddingX: 1,
+                      paddingY: 0, // Optionally remove padding to have text stick to the top
+                    }}
+                  >
+                    <Typography variant="h6">{item.name}</Typography>
+
+                    <ExpandableText
+                      text={item.description || message.no_desc_available}
+                      maxLines={2}
+                    />
+
+                    <Rating
+                      totalRatings={item.totalRatings}
+                      rating={item.rating}
+                      readOnly
+                    />
+                  </CardContent>
 
                   <Box
                     display="flex"
-                    gap={1}
-                    flexDirection="row"
+                    flexDirection="column"
                     alignItems="flex-end" // Align items to the end horizontally
-                    justifyContent="flex-end" // Align items to the top vertically
+                    justifyContent="flex-start" // Align items to the top vertically
+                    sx={{ paddingX: 1, paddingY: 0 }}
                   >
-                    <Box display="flex" alignItems="center" gap={1}>
+                    <Typography variant="h5" color="#1565c0">
+                      ₹{item.price.toFixed(2)}{" "}
+                      <LocalOfferIcon
+                        style={{
+                          verticalAlign: "middle",
+                          color: "#1565c0", // Set the color to white
+                        }}
+                      />
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ textDecoration: "line-through" }}
+                    >
+                      ₹{item.mrp.toFixed(2)}
+                      <LocalOfferIcon
+                        style={{
+                          marginLeft: 5,
+                          verticalAlign: "middle",
+                          color: "#fff", // Set the color to white
+                        }}
+                      />
+                    </Typography>
+
+                    <Box
+                      display="flex"
+                      sx={{ marginTop: 5, paddingX: 0, paddingY: 0 }}
+                      flexDirection="row"
+                      alignItems="flex-end" // Align items to the end horizontally
+                      justifyContent="flex-end" // Align items to the top vertically
+                      gap={1}
+                    >
                       <IconButton
                         size="small"
                         onClick={() => decreaseQuantity(item.id, item.minItem)} // Wrap in anonymous function
@@ -275,7 +286,7 @@ const GetCartCard = ({ data }) => {
                             quantities[item.id] <= item.minItem
                               ? "#e0e0e0"
                               : "#f0f0f0",
-                          color: "#555",
+                          color: "#000",
                           "&:hover": {
                             backgroundColor:
                               quantities[item.id] > item.minItem
@@ -290,7 +301,7 @@ const GetCartCard = ({ data }) => {
                         variant="body1"
                         sx={{
                           fontWeight: "bold",
-                          minWidth: "30px",
+                          minWidth: "20px",
                           textAlign: "center",
                         }}
                       >
@@ -306,7 +317,7 @@ const GetCartCard = ({ data }) => {
                             quantities[item.id] >= item.maxItem
                               ? "#e0e0e0"
                               : "#f0f0f0",
-                          color: "#555",
+                          color: "#000",
                           "&:hover": {
                             backgroundColor:
                               quantities[item.id] < item.maxItem
@@ -317,25 +328,36 @@ const GetCartCard = ({ data }) => {
                       >
                         <AddIcon fontSize="small" />
                       </IconButton>
-                    </Box>
 
-                    <IconButton
-                      color="error"
-                      onClick={() => removeItem(item.id)}
-                    >
-                      <DeleteIcon style={{ verticalAlign: "middle" }} />
-                    </IconButton>
+                      {/* Add extra gap between AddIcon and DeleteIcon */}
+                      <div style={{ marginLeft: "8px" }}></div>
+
+                      <IconButton
+                        size="small"
+                        onClick={() => removeItem(item.id)}
+                        sx={{
+                          border: "1px solid #ccc",
+                          backgroundColor: "#f0f0f0",
+                          color: "#000",
+                          "&:hover": {
+                            backgroundColor: "#e0e0e0",
+                          },
+                        }}
+                      >
+                        <DeleteIcon fontSize="small" />
+                      </IconButton>
+                    </Box>
                   </Box>
                 </Box>
-              </Box>
 
-              {index < items.length - 1 && <Divider className="thin" />}
-            </React.Fragment>
-          ))}
+                {index < items.length - 1 && <Divider className="thin" />}
+              </React.Fragment>
+            ))}
+          </Box>
         </Box>
 
         <Box flex={1}>
-          <Typography variant="h6">Total:</Typography>
+          <Typography variant="h6">{message.total}</Typography>
           <Typography
             variant="h4"
             sx={{
@@ -359,10 +381,10 @@ const GetCartCard = ({ data }) => {
               fontWeight: "normal",
             }}
           >
-            {totalPercentage}% off
+            {message.discount_off(totalPercentage)}
           </Typography>
 
-          <Button text="Checkout" onClick={handleCheckOut} />
+          <Button text={message.checkout} onClick={handleCheckOut} />
 
           <Divider sx={{ my: 2 }} />
 
@@ -373,7 +395,7 @@ const GetCartCard = ({ data }) => {
               marginBottom: "10px", // Adjust bottom margin
             }}
           >
-            Promotions
+            {message.promotions}
           </Typography>
 
           {appliedCoupon && (
@@ -391,139 +413,5 @@ const GetCartCard = ({ data }) => {
     </Box>
   );
 };
-
-//   return (
-//     <div className="cart">
-//       <p className="card-heading">{"Shopping Cart"}</p>
-
-//       <div className="cart_main">
-//         <div className="cart_items">
-//           <TextView
-//             text={`${items.length} items in cart`}
-//             color="#000"
-//             size={24}
-//             textStyle="bold"
-//           />
-//           <div className="card-list">
-//             <div>
-//               {items.map((item, index) => (
-//                 <React.Fragment key={item.id}>
-//                   <div key={item.id} className="card">
-//                     <div className="card-left">
-//                       {/* Image, Title, Description, Rating */}
-//                       {/* Main Image */}
-//                       <img
-//                         src={item.imgUrl}
-//                         alt={`${item.name}`}
-//                         className="card-image"
-//                       />
-//                     </div>
-
-//                     <div className="card-middle">
-//                       <div className="card-content">
-//                         {/* Title */}
-//                         <h2 className="card-title">{item.name}</h2>
-
-//                         {/* Description */}
-//                         <p className="card-description">
-//                           {item.description || "No description available."}
-//                         </p>
-
-//                         {/* Rating */}
-//                         <p className="card-rating">
-//                           {/* Rating: {item.rating} ({item.ratingCount} reviews) */}
-//                           <Rating
-//                             totalRatings={item.totalRatings}
-//                             rating={item.rating}
-//                           />
-//                         </p>
-//                       </div>
-//                     </div>
-
-//                     <div className="card-right">
-//                       {/* Price, MRP, Quantity */}
-//                       {/* Price */}
-//                       {/* <p className="card-price">₹{item.price.toFixed(2)}</p> */}
-//                       <p className="card-price">
-//                         ₹ {item.price.toFixed(2)}
-//                         <IoPricetag
-//                           style={{ marginLeft: "3px", verticalAlign: "middle" }}
-//                         />
-//                       </p>
-
-//                       <p className="card-mrp">₹ {item.mrp.toFixed(2)}</p>
-
-//                       <div className="card-quantity_list">
-//                         {/* Quantity */}
-//                         <div className="quantity-container">
-//                           <button
-//                             className="quantity-btn"
-//                             onClick={() =>
-//                               decreaseQuantity(item.id, item.minItem)
-//                             }
-//                             disabled={quantities[item.id] <= item.minItem}
-//                           >
-//                             -
-//                           </button>
-//                           <span className="quantity">
-//                             {quantities[item.id]}
-//                           </span>
-//                           <button
-//                             className="quantity-btn"
-//                             onClick={() =>
-//                               increaseQuantity(item.id, item.maxItem)
-//                             }
-//                             disabled={quantities[item.id] >= item.maxItem}
-//                           >
-//                             +
-//                           </button>
-//                         </div>
-//                         <IoTrashBinSharp
-//                           style={{
-//                             marginLeft: "3px",
-//                             marginTop: "3px",
-//                             marginBottom: "3px",
-//                             marginRight: "3px",
-//                             alignItems: "centre",
-//                           }}
-//                           onClick={() => removeItem(item.id)}
-//                         />
-//                       </div>
-//                     </div>
-//                   </div>
-//                   {/* Divider between items except the last one */}
-//                   {index < items.length - 1 && <Divider className="thin" />}
-//                 </React.Fragment>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="cart_checkout">
-//           <TextView text={`Total:`} color="#000" size={24} textStyle="bold" />
-//           <TextView
-//             text={`₹${totalAmount.toFixed(2)}`}
-//             color="#000"
-//             size={24}
-//             textStyle="bold"
-//           />
-//           <p className="card-checkout-mrp">₹ {totalMrp.toFixed(2)}</p>
-//           <p className="card-checkout-percentage">{totalPercentage}% off</p>
-//           <Button text="Checkout" onClick={handleCheckOut} />
-//           <hr class="card-checkout-divider" />
-//           <TextView text="Promotions" color="#333" size={20} textstyle="bold" />
-//           {appliedCoupon && (
-//             <TextViewWithClose
-//               text={appliedCoupon}
-//               onClose={handleRemoveCoupon}
-//             />
-//           )}
-//           <CouponCode onApply={handleApplyCoupon} />
-//           {couponMessage && <p className="coupon-message">{couponMessage}</p>}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
 
 export default GetCartCard;
