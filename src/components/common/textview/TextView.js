@@ -1,21 +1,69 @@
+// import React from "react";
+// import PropTypes from "prop-types";
+// import "./TextView.css";
+
+// const TextView = ({ text, color, size, textStyle, onClick }) => {
+//   return (
+//     <div
+//       className="text_view"
+//       style={{
+//         background: "#fff",
+//         color: color,
+//         fontSize: `${size}px`,
+//         fontStyle: textStyle,
+//       }}
+//       onClick={onClick}
+//     >
+//       {text}
+//     </div>
+//   );
+// };
+
+// // Define prop types for better validation
+// TextView.propTypes = {
+//   text: PropTypes.string.isRequired,
+//   color: PropTypes.string,
+//   size: PropTypes.number,
+//   style: PropTypes.oneOf(["normal", "italic", "bold"]),
+// };
+
+// // Default props for optional values
+// TextView.defaultProps = {
+//   color: "#000", // Default color: black
+//   size: 16, // Default size: 16px
+//   style: "normal", // Default style: normal
+// };
+
+// export default TextView;
+
 import React from "react";
 import PropTypes from "prop-types";
-import "./TextView.css";
+import { Typography, Box } from "@mui/material";
 
 const TextView = ({ text, color, size, textStyle, onClick }) => {
   return (
-    <div
-      className="text_view"
-      style={{
-        background: "#fff",
+    <Box
+      sx={{
+        backgroundColor: "#ffffff",
         color: color,
-        fontSize: `${size}px`,
-        fontStyle: textStyle,
+        borderRadius: "4px",
+        padding: "0px 0px 8px 0px",
+        textAlign: "start",
+        transition: "all 0.3s ease",
       }}
       onClick={onClick}
     >
-      {text}
-    </div>
+      <Typography
+        variant="body1"
+        sx={{
+          fontSize: `${size}px`,
+          fontStyle: textStyle === "italic" ? "italic" : "normal",
+          fontWeight: textStyle === "bold" ? "bold" : "normal",
+        }}
+      >
+        {text}
+      </Typography>
+    </Box>
   );
 };
 
@@ -24,14 +72,16 @@ TextView.propTypes = {
   text: PropTypes.string.isRequired,
   color: PropTypes.string,
   size: PropTypes.number,
-  style: PropTypes.oneOf(["normal", "italic", "bold"]),
+  textStyle: PropTypes.oneOf(["normal", "italic", "bold"]),
+  onClick: PropTypes.func,
 };
 
 // Default props for optional values
 TextView.defaultProps = {
   color: "#000", // Default color: black
   size: 16, // Default size: 16px
-  style: "normal", // Default style: normal
+  textStyle: "normal", // Default style: normal
+  onClick: null, // Default is no click handler
 };
 
 export default TextView;
