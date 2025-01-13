@@ -4,6 +4,7 @@ import CartCard from "./CartCard";
 import "./Cart.css";
 import BouncingDotsLoader from "../../components/loaders/bouncingDotLoader/BouncingDotsLoader";
 import NoData from "../../components/nodata/NoData";
+import GetCartCard from "./ShoppingCart";
 
 const GetCartItems = () => {
   const { data, isLoading, error } = useFetchCartItems();
@@ -43,6 +44,7 @@ const GetCartItems = () => {
         {/* Success UI */}
         {!isLoading && !error && cartItems.length > 0 && (
           <CartCard data={cartItems} />
+          // <GetCartCard data={cartItems} />
         )}
       </div>
     </div>

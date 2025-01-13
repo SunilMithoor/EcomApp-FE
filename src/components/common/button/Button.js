@@ -1,15 +1,65 @@
-import React from "react";
-import "./Button.css"; // Optional: If you want to add custom styles
+// import React from "react";
+// import "./Button.css"; // Optional: If you want to add custom styles
 
-const Button = ({ text, onClick, className, disabled }) => {
+// const Button = ({ text, onClick, className, disabled }) => {
+//   return (
+//     <button
+//       className={`button ${className}`} // Allow custom classes to be added
+//       onClick={onClick}
+//       disabled={disabled} // Disable the button if the disabled prop is true
+//     >
+//       {text}
+//     </button>
+//   );
+// };
+
+// export default Button;
+
+import React from "react";
+import { Button as MuiButton } from "@mui/material";
+import { Box } from "@mui/material";
+
+const Button = ({ text, onClick, disabled }) => {
   return (
-    <button
-      className={`button ${className}`} // Allow custom classes to be added
-      onClick={onClick}
-      disabled={disabled} // Disable the button if the disabled prop is true
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="space-between"
+      sx={{
+        minWidth: "300px",
+        backgroundColor: "#f9f9f9",
+        width: "100%",
+        marginTop: "10px",
+      }}
     >
-      {text}
-    </button>
+      <MuiButton
+        variant="contained"
+        onClick={onClick}
+        disabled={disabled}
+        sx={{
+          flex: 1,
+          overflow: "hidden",
+          padding: "10px 10px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: "16px",
+          borderRadius: "3px",
+          backgroundColor: "#e9333c",
+          color: "white", // Ensure the text color is white
+          "&:hover": {
+            backgroundColor: "#d42e35", // Slightly darker on hover
+          },
+          "&:disabled": {
+            backgroundColor: "#cccccc",
+            cursor: "not-allowed",
+          },
+          transition: "background-color 0.3s ease",
+        }}
+      >
+        {text}
+      </MuiButton>
+    </Box>
   );
 };
 

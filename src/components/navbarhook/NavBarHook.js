@@ -6,6 +6,8 @@ import "../navbarhook/NavBarHook.css";
 import renderDialog from "../dropdowns/DialogDropDown.js";
 import renderSubScreen from "../rightdialogdropdown/RightDialogDropdown.js";
 import CartPopUp from "../cartpopup/CartPopUp.js";
+import SignInSignUp from "../../layouts/signinsignup/SignInSignUp.js";
+import MyDialog from "../../layouts/signinsignup/MyDialog.js";
 
 const NavbarHook = () => {
   const isMobile = useMediaQuery({ maxWidth: "1150px" });
@@ -87,6 +89,24 @@ const NavbarHook = () => {
   const hidePopup = () => {
     setPopup({ visible: false, text: "", x: 0, y: 0 });
   };
+
+  // const [isPopupOpen, setIsPopupOpen] = useState(false);
+  // const [popupMode, setPopupMode] = useState("login");
+
+  // const handleOpenPopup = (mode) => {
+  //   setPopupMode(mode);
+  //   setIsPopupOpen(true);
+  // };
+
+  // const handleClosePopup = () => {
+  //   setIsPopupOpen(false);
+  // };
+
+  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
+
+  const togglePopup = () => setPopupOpen(!isPopupOpen);
+  const toggleForm = () => setIsLogin(!isLogin);
 
   const renderNavLinks = () => {
     const listClassName = isMobile ? "nav__list" : "nav__list__web";
@@ -192,7 +212,8 @@ const NavbarHook = () => {
           <NavLink
             to="/profile"
             className={linkClassName}
-            onClick={closeMobileMenu}
+            onClick={togglePopup}
+
             // onMouseEnter={() => showSubScreenDialog("profile")}
             // onMouseLeave={hideSubScreenDialog}
           >
@@ -248,6 +269,21 @@ const NavbarHook = () => {
           handleSubScreenDialogMouseEnter,
           handleSubScreenDialogMouseLeave
         )}
+        {
+          // <SignInSignUp
+          //   isOpen={isPopupOpen}
+          //   onClose={togglePopup}
+          //   isLogin={isLogin}
+          //   toggleForm={toggleForm}
+          // />
+
+          <MyDialog
+            isOpen={isPopupOpen}
+            onClose={togglePopup}
+            isLogin={isLogin}
+            toggleForm={toggleForm}
+          />
+        }
         {popup.visible && (
           <CartPopUp text={popup.text} closePopup={hidePopup} />
         )}
