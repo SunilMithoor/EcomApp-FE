@@ -7,7 +7,6 @@ import renderDialog from "../dropdowns/DialogDropDown.js";
 import renderSubScreen from "../rightdialogdropdown/RightDialogDropdown.js";
 import CartPopUp from "../cartpopup/CartPopUp.js";
 import SignInSignUp from "../../layouts/signinsignup/SignInSignUp.js";
-import MyDialog from "../../layouts/signinsignup/MyDialog.js";
 
 const NavbarHook = () => {
   const isMobile = useMediaQuery({ maxWidth: "1150px" });
@@ -277,7 +276,7 @@ const NavbarHook = () => {
           //   toggleForm={toggleForm}
           // />
 
-          <MyDialog
+          <SignInSignUp
             isOpen={isPopupOpen}
             onClose={togglePopup}
             isLogin={isLogin}
