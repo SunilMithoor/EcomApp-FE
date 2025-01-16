@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => {
+function Header() {
   return (
     <header
       style={{
@@ -13,6 +13,6 @@ const Header = () => {
       <h2>Ecom App</h2>
     </header>
   );
-};
+}
 
 export default Header;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Typography, Button } from "@mui/material";
 import message from "../../../constants/message";
 
-const ExpandableText = ({ text, maxLines = 2 }) => {
+function ExpandableText({ text, maxLines = 2 }) {
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpand = () => {
@@ -34,6 +34,6 @@ const ExpandableText = ({ text, maxLines = 2 }) => {
       </Button>
     </div>
   );
-};
+}
 
 export default ExpandableText;

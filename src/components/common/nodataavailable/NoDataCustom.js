@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import messages from "../../../constants/message";
 
-const NoDataCustom = ({ message = messages.no_data_available }) => {
+function NoDataCustom({ message = messages.no_data_available }) {
   return (
     <Box
       display="flex"
@@ -21,6 +21,6 @@ const NoDataCustom = ({ message = messages.no_data_available }) => {
       </Typography>
     </Box>
   );
-};
+}
 
 export default NoDataCustom;

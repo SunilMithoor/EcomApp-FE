@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchCartItems } from "../services/localService/LocalService";
 
-const useFetchCart = () => {
+function useFetchCart() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -23,6 +23,6 @@ const useFetchCart = () => {
   }, []);
 
   return { data, isLoading, error };
-};
+}
 
-export default useFetchCart;
+export { useFetchCart };

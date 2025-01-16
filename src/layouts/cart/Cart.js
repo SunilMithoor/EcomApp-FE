@@ -1,13 +1,22 @@
-import React from "react";
-import useFetchCartItems from "../../hooks/useFetchCart";
+import React, { useRef, useEffect } from "react";
+import { useFetchCart } from "../../hooks/useFetchCart";
 import CartCard from "./CartCard";
 import NoData from "../../components/common/nodataavailable/NoDataCustom";
-import BouncingDotsLoader from "../../components/common/loaders/BouncingDotsLoader";
 import { Box, Alert } from "@mui/material";
-import message from "../../constants/message";
+import BackDropLoader from "../../components/common/loaders/BackDropLoader";
 
-const GetCartItems = () => {
-  const { data, isLoading, error } = useFetchCartItems();
+function GetCartItems() {
+  const { data, isLoading, error } = useFetchCart();
+  const loaderRef = useRef();
+
+  useEffect(() => {
+    // Show or hide loader based on isLoading
+    if (isLoading) {
+      loaderRef.current.start();
+    } else {
+      loaderRef.current.stop();
+    }
+  }, [isLoading]);
 
   // Normalize cartItems to an empty array if null
   let cartItems = [];
@@ -17,17 +26,8 @@ const GetCartItems = () => {
 
   return (
     <Box sx={{ padding: 2 }}>
-      {/* Loading UI */}
-      {isLoading && (
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          height="100vh"
-        >
-          <BouncingDotsLoader />
-        </Box>
-      )}
+      {/* Backdrop Loader */}
+      <BackDropLoader ref={loaderRef} />
 
       {/* Error UI */}
       {!isLoading && error && (
@@ -59,6 +59,6 @@ const GetCartItems = () => {
       )}
     </Box>
   );
-};
+}
 
 export default GetCartItems;

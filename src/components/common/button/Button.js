@@ -2,7 +2,7 @@ import React from "react";
 import { Button as MuiButton } from "@mui/material";
 import { Box } from "@mui/material";
 
-const Button = ({ text, onClick, disabled }) => {
+function Button({ text, onClick, disabled }) {
   return (
     <Box
       display="flex"
@@ -44,6 +44,6 @@ const Button = ({ text, onClick, disabled }) => {
       </MuiButton>
     </Box>
   );
-};
+}
 
 export default Button;

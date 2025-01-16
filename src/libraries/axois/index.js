@@ -1,5 +1,4 @@
 import axios from "axios";
-import { getCookie } from "../cookies/index";
 
 console.log("API URL:", process.env.REACT_APP_API_BASE_URL);
 

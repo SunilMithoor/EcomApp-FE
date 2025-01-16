@@ -2,7 +2,7 @@ import React from "react";
 import { CircularProgress, Box, Fade } from "@mui/material";
 import { useState, useEffect } from "react";
 
-const BouncingDotsLoader = () => {
+function BouncingDotsLoader() {
   const [visible, setVisible] = useState(true);
 
   // useEffect(() => {
@@ -26,10 +26,10 @@ const BouncingDotsLoader = () => {
         bgcolor="rgba(255, 255, 255, 0.7)"
         zIndex={9999}
       >
-        <CircularProgress color="secondary" size={60} />
+        <CircularProgress color="primary" size={40} />
       </Box>
     </Fade>
   );
-};
+}
 
 export default BouncingDotsLoader;
