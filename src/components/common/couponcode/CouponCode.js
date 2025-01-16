@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, TextField, Button } from "@mui/material";
 import message from "../../../constants/message";
 
-const CouponCode = ({ onApply }) => {
+function CouponCode({ onApply }) {
   const [coupon, setCoupon] = useState("");
 
   const handleInputChange = (e) => {
@@ -55,6 +55,6 @@ const CouponCode = ({ onApply }) => {
       </Button>
     </Box>
   );
-};
+}
 
 export default CouponCode;

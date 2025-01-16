@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Typography, Box } from "@mui/material";
 
-const TextView = ({ text, color, size, textStyle, onClick }) => {
+function TextView({ text, color, size, textStyle, onClick }) {
   return (
     <Box
       sx={{
@@ -27,7 +27,7 @@ const TextView = ({ text, color, size, textStyle, onClick }) => {
       </Typography>
     </Box>
   );
-};
+}
 
 // Define prop types for better validation
 TextView.propTypes = {

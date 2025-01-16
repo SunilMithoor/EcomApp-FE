@@ -1,0 +1,131 @@
+.navbar {
+  top: 0;
+  z-index: 1000;
+  background-color: transparent;
+  color: rgb(7, 7, 7);
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 1rem 2rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+.navbar-logo {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  max-height: 100%;
+  width: auto;
+}
+
+.nav_logo-image {
+  width: 80px; /* Adjust the width of the logo */
+  height: auto; /* Maintain aspect ratio */
+  padding: 2px; /* Add spacing around the image */
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-links li {
+  cursor: pointer;
+  position: relative;
+}
+
+.navbar-links li:hover .dropdown-menu {
+  display: block;
+}
+
+li a {
+  color: inherit; /* Removes the blue color */
+  text-decoration: none; /* Removes the underline */
+}
+
+/* Hamburger Menu Icon */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle.open {
+  transform: rotate(
+    180deg
+  ); /* Optional: Adds a rotate animation when menu is open */
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(68, 68, 68, 0.9); /* Slightly transparent dropdown */
+  color: white;
+  list-style: none;
+  padding: 0.5rem 0;
+  border-radius: 5px;
+}
+
+.dropdown-menu li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: rgba(85, 85, 85, 0.9); /* Hover color with transparency */
+}
+
+.logo-text {
+  font-size: 16px;
+  margin-bottom: 0px;
+  font-family: "IDRHeading";
+  color: #4d4646;
+  text-align: start;
+}
+
+@font-face {
+  font-family: "IDRHeading";
+  src: url("/public/fonts/SaltHeading.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    transition: transform 0.3s ease; /* Adds sliding animation */
+    transform: translateX(-100%); /* Initially off-screen */
+  }
+
+  .navbar-links-open {
+    display: flex;
+    transform: translateX(0); /* Slides in from the left */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}

@@ -1,0 +1,49 @@
+{
+    "userAgreement": {
+      "introduction": {
+        "description": "This User Agreement sets out the terms between you and AWIN Limited ('AWIN') under which you may access the intranet and software platform operated by AWIN (the 'Interface').",
+        "acceptance": "By clicking the ‘Step Two’ button during the registration process, you accept the terms and conditions of this User Agreement."
+      },
+      "userAccount": {
+        "registration": "When you register on the Website, you will be allocated a personal account ('User Account').",
+        "restrictions": [
+          "The User Account is for a single User only.",
+          "Sharing usernames and passwords with others is prohibited."
+        ],
+        "responsibilities": [
+          "Users are responsible for securing their account details.",
+          "Unauthorized access must be reported to AWIN immediately."
+        ],
+        "emailPolicy": "Accounts must be registered with a valid personal email address."
+      },
+      "servicesAndInterface": {
+        "userRights": "AWIN grants the User a revocable, non-exclusive, non-transferable right to use the Interface for business purposes.",
+        "interactiveServices": "Certain services enable Users to submit information or data ('Content').",
+        "privacySettings": "Users can choose privacy settings but AWIN cannot guarantee their effectiveness.",
+        "contentWarnings": "AWIN is not responsible for misuse of Content submitted by Users."
+      },
+      "prohibitedUses": {
+        "unlawfulActivity": "The Interface may not be used for any unlawful or fraudulent purposes.",
+        "malwareTransmission": "Users must not upload Content containing harmful code.",
+        "reproductionRestrictions": "Duplicating or reselling parts of the Interface is prohibited.",
+        "disruption": "Users may not interfere with or disrupt the Interface or related networks."
+      },
+      "terminationAndActions": {
+        "terminationRights": "Either party may terminate the User Agreement at any time.",
+        "consequences": [
+          "Withdrawal of access to the Interface.",
+          "Legal proceedings for damages.",
+          "Disclosure of breach details to relevant authorities."
+        ]
+      },
+      "reservationOfRights": {
+        "modifications": "AWIN may modify or suspend the Interface or Agreement at any time.",
+        "userResponsibility": "Users must periodically review the Agreement for updates."
+      },
+      "general": {
+        "transferRights": "AWIN may transfer its rights under the Agreement, but Users may not do so without consent.",
+        "governingLaw": "This Agreement is governed by the law of England and Wales, with exclusive jurisdiction in its courts."
+      }
+    }
+  }
+  

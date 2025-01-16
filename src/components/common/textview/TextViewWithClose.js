@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Typography, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
-const TextViewWithClose = ({ text, onClose }) => {
+function TextViewWithClose({ text, onClose }) {
   const [isVisible, setIsVisible] = useState(true);
 
   const handleClose = () => {
@@ -56,6 +56,6 @@ const TextViewWithClose = ({ text, onClose }) => {
       </Box>
     )
   );
-};
+}
 
 export default TextViewWithClose;

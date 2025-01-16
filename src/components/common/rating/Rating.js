@@ -6,7 +6,7 @@ import StarHalfIcon from "@mui/icons-material/StarHalf";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import message from "../../../constants/message";
 
-const Rating = ({ totalRatings = 0, rating = 0 }) => {
+function Rating({ totalRatings = 0, rating = 0 }) {
   const renderStar = (index) => {
     const isFull = index + 1 <= Math.floor(rating);
     const isHalf = index + 1 === Math.ceil(rating) && rating % 1 !== 0;
@@ -43,7 +43,7 @@ const Rating = ({ totalRatings = 0, rating = 0 }) => {
       </Typography>
     </Box>
   );
-};
+}
 
 Rating.propTypes = {
   totalRatings: PropTypes.number,
