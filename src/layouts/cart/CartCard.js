@@ -10,6 +10,7 @@ import ExpandableText from "../../components/common/textview/ExpandableText.js";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import DeleteIcon from "@mui/icons-material/Delete";
 import message from "../../constants/message.js";
+import { purple } from "@mui/material/colors";
 
 import {
   CardContent,
@@ -19,7 +20,7 @@ import {
   Box,
 } from "@mui/material";
 
-const GetCartCard = ({ data }) => {
+function GetCartCard({ data }) {
   const [items, setCartItems] = useState(Array.isArray(data) ? data : []);
   const [appliedCoupon, setAppliedCoupon] = useState("");
   const [couponMessage, setCouponMessage] = useState("");
@@ -150,11 +151,20 @@ const GetCartCard = ({ data }) => {
     <Box
       p={2}
       sx={{
-        marginTop: 10,
+        marginTop: 1,
         marginBottom: 1,
       }}
     >
-      <Typography variant="h4" fontWeight="bold">
+      <Typography
+        variant="h4"
+        fontWeight="bold"
+        sx={{
+          display: "flex",
+          justifyContent: "start",
+          alignItems: "start",
+          textAlign: "left", // Align text to the left
+        }}
+      >
         {message.shopping_cart}
       </Typography>
 
@@ -165,6 +175,10 @@ const GetCartCard = ({ data }) => {
             sx={{
               fontWeight: "bold",
               padding: "5px", // Make the text bold
+              display: "flex",
+              justifyContent: "start",
+              alignItems: "start",
+              textAlign: "left", // Align text to the left
             }}
           >
             {message.items_count(items.length)}
@@ -207,7 +221,7 @@ const GetCartCard = ({ data }) => {
                       loading="lazy"
                       sx={{
                         width: 120,
-                        height: 140,
+                        height: 120,
                         objectFit: "cover", // Ensures the image covers the entire box
                       }}
                     />
@@ -357,11 +371,26 @@ const GetCartCard = ({ data }) => {
         </Box>
 
         <Box flex={1}>
-          <Typography variant="h6">{message.total}</Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: "bold", // Make the text bold
+              display: "flex",
+              justifyContent: "start",
+              alignItems: "start",
+              textAlign: "left", // Align text to the left
+            }}
+          >
+            {message.total}
+          </Typography>
           <Typography
             variant="h4"
             sx={{
               fontWeight: "bold", // Make the text bold
+              display: "flex",
+              justifyContent: "start",
+              alignItems: "start",
+              textAlign: "left", // Align text to the left
             }}
           >
             ₹{totalAmount.toFixed(2)}
@@ -370,6 +399,10 @@ const GetCartCard = ({ data }) => {
             color="text.secondary"
             sx={{
               fontWeight: "bold", // Make the text bold
+              display: "flex",
+              justifyContent: "start",
+              alignItems: "start",
+              textAlign: "left", // Align text to the left
               textDecoration: "line-through",
             }}
           >
@@ -378,7 +411,11 @@ const GetCartCard = ({ data }) => {
           <Typography
             color="grey"
             sx={{
-              fontWeight: "normal",
+              fontWeight: "normal", // Make the text bold
+              display: "flex",
+              justifyContent: "start",
+              alignItems: "start",
+              textAlign: "left", // Align text to the left
             }}
           >
             {message.discount_off(totalPercentage)}
@@ -412,6 +449,6 @@ const GetCartCard = ({ data }) => {
       </Box>
     </Box>
   );
-};
+}
 
 export default GetCartCard;

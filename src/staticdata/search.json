@@ -1,0 +1,107 @@
+{
+    "success": true,
+    "message": "Search list",
+    "data":  [
+        {
+          "id": 1,
+          "name": "Tab 1",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 2,
+          "name": "Mobile 1",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 3,
+          "name": "Earbuds 1",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 4,
+          "name": "Neckband 1",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 5,
+          "name": "Cable 1",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 6,
+          "name": "Tab 2",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 7,
+          "name": "Mobile 2",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 8,
+          "name": "Earbuds 2",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 9,
+          "name": "Neckband 2",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 10,
+          "name": "Cable 2",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 11,
+          "name": "Tab 3",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 12,
+          "name": "Mobile 3",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 13,
+          "name": "Earbuds 3",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 14,
+          "name": "Neckband 3",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 15,
+          "name": "Cable 3",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 16,
+          "name": "Tab 4",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 17,
+          "name": "Mobile 4",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 18,
+          "name": "Earbuds 4",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 19,
+          "name": "Neckband 4",
+          "description":"Sample description for the data"
+        },
+        {
+          "id": 20,
+          "name": "Cable 4",
+          "description":"Sample description for the data"
+        }
+      ]
+    }
+

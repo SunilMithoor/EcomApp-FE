@@ -259,14 +259,14 @@ function SignInSignUp({ isOpen, onClose, fullScreen }) {
       >
         {/* Backdrop Loader */}
         <DialogTitle
-          sx={{ m: 0, p: 1, backgroundColor: grey[300] }}
+          sx={{ m: 0, p: 1, backgroundColor: "#1c2431" }}
           id="customized-dialog-title"
-          color="#000"
+          color="#fff"
         >
           {activeForm === "login" ? message.signin : message.signup}
           <Typography
             variant="subtitle2"
-            sx={{ fontSize: "14px", color: "#000" }}
+            sx={{ fontSize: "14px", color: "#fff" }}
           >
             {activeForm === "login"
               ? message.sign_in_continue
@@ -279,7 +279,7 @@ function SignInSignUp({ isOpen, onClose, fullScreen }) {
               position: "absolute",
               right: 8,
               top: 8,
-              color: "#000",
+              color: "#fff",
             })}
           >
             <CloseIcon />
