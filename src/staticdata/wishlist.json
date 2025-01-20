@@ -1,6 +1,6 @@
 {
     "success": true,
-    "message": "Cart items",
+    "message": "Wishlist items",
     "data":  [
         {
           "id": 1,

@@ -4,8 +4,10 @@ import CartCard from "./CartCard";
 import NoData from "../../components/common/nodataavailable/NoDataCustom";
 import { Box, Alert } from "@mui/material";
 import BackDropLoader from "../../components/common/loaders/BackDropLoader";
+import { useParams } from "react-router-dom";
 
 function GetCartItems() {
+  const { id } = useParams();
   const { data, isLoading, error } = useFetchCart();
   const loaderRef = useRef();
 

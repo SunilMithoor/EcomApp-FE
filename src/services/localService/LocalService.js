@@ -1,5 +1,8 @@
 import axios from "axios";
-import data from "../../staticdata/cart.json";
+import cartData from "../../staticdata/cart.json";
+import notificationsData from "../../staticdata/notifications.json";
+import searchData from "../../staticdata/search.json";
+import wishlistData from "../../staticdata/wishlist.json";
 
 // export const fetchCartItems = () => {
 //   return axios
@@ -17,7 +20,7 @@ function fetchCartItems() {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
-        resolve(data); // Simulate axios response with static JSON data
+        resolve(cartData); // Simulate axios response with static JSON data
       }, 1000);
     } catch (error) {
       reject(error);
@@ -109,18 +112,75 @@ function signUp() {
 
 const subscriberSuccessResponse = {
   success: true,
-  message: "Subscribed successfully!",
+  message: "Thank you! Your subscription was successful!!",
 };
 const subscriberFailureResponse = {
   success: false,
-  message: "Subscription was  unsuccessful!",
+  message: "We’re sorry! Your subscription could not be completed.",
 };
 function addSubscriber() {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
-        resolve(subscriberSuccessResponse); // Simulate axios response with static JSON data
+        resolve(subscriberFailureResponse); // Simulate axios response with static JSON data
       }, 3000);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+const homeSuccessResponse = {
+  success: true,
+  message: "Success",
+};
+const homeFailureResponse = {
+  success: false,
+  message: "Failure",
+};
+
+function fetchHome() {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        resolve(homeSuccessResponse); // Simulate axios response with static JSON data
+      }, 3000);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+function fetchNotifications() {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        resolve(notificationsData); // Simulate axios response with static JSON data
+      }, 1000);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+function fetchSearch() {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        resolve(searchData); // Simulate axios response with static JSON data
+      }, 1000);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+function fetchWishlists() {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        resolve(wishlistData); // Simulate axios response with static JSON data
+      }, 1000);
     } catch (error) {
       reject(error);
     }
@@ -130,8 +190,12 @@ function addSubscriber() {
 export {
   addSubscriber,
   fetchCartItems,
+  fetchNotifications,
   emailSignIn,
   mobileSignIn,
   signUp,
   mobileOtpGenerate,
+  fetchHome,
+  fetchSearch,
+  fetchWishlists,
 };

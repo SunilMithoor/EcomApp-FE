@@ -1,0 +1,170 @@
+{
+    "success": true,
+    "message": "Notifications list",
+    "data": {
+      "introduction": {
+        "title": "Ecommerce App",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "imgUrl": "https://placebear.com/g/200/200"
+      },
+      "sliders": [
+        {
+          "id": 1,
+          "name": "Mobile 1",
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 2,
+          "name": "Mobile 1",
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        }
+      ],
+      "features": [
+        {
+          "id": 1,
+          "title": "Free delivery",
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 2,
+          "title": "Quality guarantee",
+          "description": "Dolor sit amet orem ipsu mcons ectetur adipi elit.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 3,
+          "title": "Daily offers",
+          "description": "Amet consectetur adipi elit loreme ipsum dolor sit.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 4,
+          "title": "100% secure payment",
+          "description": "Rem Lopsum dolor sit amet consectetur adipi elit.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        }
+      ],
+      "recommended": [],
+      "bestSelling": [],
+      "recently_viewed": [],
+      "categories": [
+        {
+          "id": 1,
+          "name": "Free delivery",
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 2,
+          "name": "Free delivery",
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 3,
+          "name": "Free delivery",
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 4,
+          "name": "Free delivery",
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 5,
+          "name": "Free delivery",
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        }
+      ],
+      "customerReviews": [
+        {
+          "id": 1,
+          "name": "Thomas John",
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "dateTime": "2025-01-15T12:15:20Z",
+          "rating": 4.2,
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 2,
+          "name": "Thomas John",
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "dateTime": "2025-01-15T12:15:20Z",
+          "rating": 4.2,
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 3,
+          "name": "Thomas John",
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "dateTime": "2025-01-15T12:15:20Z",
+          "rating": 4.2,
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 4,
+          "name": "Thomas John",
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "dateTime": "2025-01-15T12:15:20Z",
+          "rating": 4.2,
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 5,
+          "name": "Thomas John",
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "dateTime": "2025-01-15T12:15:20Z",
+          "rating": 4.2,
+          "imgUrl": "https://placebear.com/g/200/200"
+        }
+      ],
+      "latestPosts": [
+        {
+          "id": 1,
+          "title": "Thomas John",
+          "categoryName": "Thomas John",
+          "categoryId": 1,
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 2,
+          "title": "Thomas John",
+          "categoryName": "Thomas John",
+          "categoryId": 1,
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 3,
+          "title": "Thomas John",
+          "categoryName": "Thomas John",
+          "categoryId": 1,
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 4,
+          "title": "Thomas John",
+          "categoryName": "Thomas John",
+          "categoryId": 1,
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        },
+        {
+          "id": 5,
+          "title": "Thomas John",
+          "categoryName": "Thomas John",
+          "categoryId": 1,
+          "description": "Consectetur adipi elit lorem ipsum dolor sit amet.",
+          "imgUrl": "https://placebear.com/g/200/200"
+        }
+      ]
+    }
+  }
