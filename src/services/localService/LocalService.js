@@ -3,6 +3,9 @@ import cartData from "../../staticdata/cart.json";
 import notificationsData from "../../staticdata/notifications.json";
 import searchData from "../../staticdata/search.json";
 import wishlistData from "../../staticdata/wishlist.json";
+import homeData from "../../staticdata/home.json";
+import menuDropdownData from "../../staticdata/menu_dropdown.json";
+import menuData from "../../staticdata/menu.json";
 
 // export const fetchCartItems = () => {
 //   return axios
@@ -21,7 +24,7 @@ function fetchCartItems() {
     try {
       setTimeout(() => {
         resolve(cartData); // Simulate axios response with static JSON data
-      }, 1000);
+      }, 5000);
     } catch (error) {
       reject(error);
     }
@@ -143,8 +146,8 @@ function fetchHome() {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
-        resolve(homeSuccessResponse); // Simulate axios response with static JSON data
-      }, 3000);
+        resolve(homeData); // Simulate axios response with static JSON data
+      }, 1000);
     } catch (error) {
       reject(error);
     }
@@ -156,7 +159,7 @@ function fetchNotifications() {
     try {
       setTimeout(() => {
         resolve(notificationsData); // Simulate axios response with static JSON data
-      }, 1000);
+      }, 5000);
     } catch (error) {
       reject(error);
     }
@@ -168,7 +171,7 @@ function fetchSearch() {
     try {
       setTimeout(() => {
         resolve(searchData); // Simulate axios response with static JSON data
-      }, 1000);
+      }, 5000);
     } catch (error) {
       reject(error);
     }
@@ -180,7 +183,19 @@ function fetchWishlists() {
     try {
       setTimeout(() => {
         resolve(wishlistData); // Simulate axios response with static JSON data
-      }, 1000);
+      }, 5000);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+function fetchMenuDropDowns() {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        resolve(menuDropdownData); // Simulate axios response with static JSON data
+      }, 5000);
     } catch (error) {
       reject(error);
     }
@@ -198,4 +213,5 @@ export {
   fetchHome,
   fetchSearch,
   fetchWishlists,
+  fetchMenuDropDowns,
 };

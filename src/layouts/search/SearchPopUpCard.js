@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Typography, Box, Card, CardActionArea } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { blueGrey } from "@mui/material/colors";
 
 function SearchPopUpCard({ data, closeDropdown }) {
   const navigate = useNavigate();
@@ -13,7 +14,8 @@ function SearchPopUpCard({ data, closeDropdown }) {
 
   return (
     <Card
-      sx={{ boxShadow: 0, cursor: "pointer", backgroundColor: "#F8F8F8" }}
+      elevation="0"
+      sx={{ boxShadow: 0, cursor: "pointer", backgroundColor: "#fff" }}
       key={data.id}
       onClick={() => handleCardClick(data.id)}
     >
@@ -21,9 +23,9 @@ function SearchPopUpCard({ data, closeDropdown }) {
         variant="outlined"
         sx={{
           "&[data-active]": {
-            backgroundColor: "#F8F8F8", // Active background color
+            backgroundColor: "#fff", // Active background color
             "&:hover": {
-              backgroundColor: "#CFCFCF", // Darker hover color
+              backgroundColor: blueGrey[50], // Darker hover color
             },
           },
         }}

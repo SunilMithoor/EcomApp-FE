@@ -10,7 +10,7 @@ function Header() {
         textAlign: "center",
       }}
     >
-      <h2>Ecom App</h2>
+      <h2>MG App</h2>
     </header>
   );
 }

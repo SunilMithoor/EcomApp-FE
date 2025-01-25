@@ -1,11 +1,12 @@
 import React from "react";
+import DefaultPage from "../default/Default";
 
-const Audio = () => {
+function Audio() {
   return (
     <div>
-      <p>Audio</p>
+      <DefaultPage />
     </div>
   );
-};
+}
 
 export default Audio;

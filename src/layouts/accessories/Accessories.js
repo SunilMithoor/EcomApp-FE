@@ -1,11 +1,12 @@
 import React from "react";
+import DefaultPage from "../default/Default";
 
-const Phones = () => {
+function Accessories() {
   return (
     <div>
-      <p>Phones</p>
+      <DefaultPage />
     </div>
   );
-};
+}
 
-export default Phones;
+export default Accessories;

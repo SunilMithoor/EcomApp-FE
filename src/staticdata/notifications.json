@@ -1,42 +1,41 @@
 {
-    "success": true,
-    "message": "Notifications list",
-    "data":  [
-        {
-          "id": 1,
-          "name": "Lorem ipsum, placeholder or dummy text",
-          "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-          "dateTime": "2025-01-01T14:15:20Z",
-          "imgUrl":"https://placebear.com/g/200/200"
-        },
-        {
-          "id": 2,
-          "name": "Lorem ipsum, placeholder or dummy text",
-          "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
-          "dateTime": "2025-01-15T12:15:20Z",
-          "imgUrl":"https://www.placebear.com/100/100"
-        },
-        {
-          "id": 3,
-          "name": "Item 3",
-          "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
-          "dateTime": "2025-01-10T14:15:20Z",
-          "imgUrl":"https://www.placebear.com/100/150"
-        },
-        {
-          "id": 4,
-          "name": "Lorem ipsum, placeholder or dummy text",
-          "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
-          "dateTime": "2025-01-18T09:15:20Z",
-          "imgUrl":"https://www.placebear.com/100/160"
-        },
-        {
-          "id": 5,
-          "name": "Item 5",
-          "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
-          "dateTime": "2025-01-19T06:15:20Z",
-          "imgUrl":"https://www.placebear.com/100/170"
-        }
-      ]
+  "success": true,
+  "message": "Notifications list",
+  "data": [
+    {
+      "id": 1,
+      "name": "Lorem ipsum, placeholder or dummy text",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "dateTime": "2025-01-01T14:15:20Z",
+      "imgUrl": "https://placebear.com/g/200/200"
+    },
+    {
+      "id": 2,
+      "name": "Lorem ipsum, placeholder or dummy text",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
+      "dateTime": "2025-01-15T12:15:20Z",
+      "imgUrl": "https://www.placebear.com/100/100"
+    },
+    {
+      "id": 3,
+      "name": "Item 3",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
+      "dateTime": "2025-01-10T14:15:20Z",
+      "imgUrl": "https://www.placebear.com/100/150"
+    },
+    {
+      "id": 4,
+      "name": "Lorem ipsum, placeholder or dummy text",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
+      "dateTime": "2025-01-18T09:15:20Z",
+      "imgUrl": "https://www.placebear.com/100/160"
+    },
+    {
+      "id": 5,
+      "name": "Item 5",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting",
+      "dateTime": "2025-01-19T06:15:20Z",
+      "imgUrl": "https://www.placebear.com/100/170"
     }
-
+  ]
+}

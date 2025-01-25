@@ -1,0 +1,166 @@
+{
+  "success": true,
+  "message": "Menu dropdowns",
+  "data": {
+    "phones": [
+      {
+        "id": 1,
+        "name": "Phone 1",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fphones%2Fphones_1.png?alt=media&token=6b85f309-1f5a-4415-b602-0f6d66b5c87e",
+        "isNew": true
+      },
+      {
+        "id": 2,
+        "name": "Phone 2",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fphones%2Fphone_3.png?alt=media&token=3d321432-c2fa-4acc-acf0-dbea7b26277a",
+        "isNew": false
+      },
+      {
+        "id": 3,
+        "name": "Phone 3",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fphones%2Fphones_2.png?alt=media&token=0428a5da-a8bb-4288-aa34-0c4d201598dd",
+        "isNew": false
+      },
+      {
+        "id": 4,
+        "name": "Phone 4",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fphones%2Fphones_5.png?alt=media&token=0d6ab84e-d1b1-4b88-aea7-4528c01d0dac",
+        "isNew": false
+      },
+      {
+        "id": 5,
+        "name": "Phone 5",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fphones%2Fphones_4.png?alt=media&token=cb85085f-ce3f-4f02-9c6a-bd667e502974",
+        "isNew": false
+      }
+    ],
+    "tablets": [
+      {
+        "id": 1,
+        "name": "Tablet 1",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Ftablets%2Ftablet_1.png?alt=media&token=8b2e946b-6d93-4b4a-bf17-f06faa182920",
+        "isNew": true
+      },
+      {
+        "id": 2,
+        "name": "Tablet 2",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Ftablets%2Ftablet_2.png?alt=media&token=a678c1db-9adc-4410-8217-89dafde961a1",
+        "isNew": true
+      },
+      {
+        "id": 3,
+        "name": "Tablet 3",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Ftablets%2Ftablets1.png?alt=media&token=01c0ab7f-05cb-4840-b682-155e2e0ce73e",
+        "isNew": false
+      },
+      {
+        "id": 4,
+        "name": "Tablet 4",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Ftablets%2Ftablets2.png?alt=media&token=15ca5069-db21-4edd-9813-f02e31581676",
+        "isNew": false
+      },
+      {
+        "id": 5,
+        "name": "Tablet 5",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Ftablets%2Ftablets3.png?alt=media&token=7487a04c-10df-4e9a-8f13-77d136e903a9",
+        "isNew": false
+      }
+    ],
+    "audio": [
+      {
+        "id": 1,
+        "name": "Audio 1",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Faudio%2Fearbuds_3.png?alt=media&token=0f03c6bf-4514-4ac3-b256-45fd7bd80fb2",
+        "isNew": true
+      },
+      {
+        "id": 2,
+        "name": "Audio 2",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Faudio%2Fearbuds_4.png?alt=media&token=530a353b-2b50-4382-9bef-5630f803584a",
+        "isNew": true
+      },
+      {
+        "id": 3,
+        "name": "Audio 3",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Faudio%2Fearbuds_6.png?alt=media&token=741545fb-329e-4862-906b-1e13a1b2dc4a",
+        "isNew": false
+      },
+      {
+        "id": 4,
+        "name": "Audio 4",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Faudio%2Fneckband_1.png?alt=media&token=58c55432-e93a-413a-a1b7-4289f2cf392a",
+        "isNew": false
+      },
+      {
+        "id": 5,
+        "name": "Audio 5",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Faudio%2Fneckband_2.png?alt=media&token=f415bc0e-5f67-4a79-963a-00ae1fa14f5f",
+        "isNew": false
+      }
+    ],
+    "wearables": [
+      {
+        "id": 1,
+        "name": "Wearables 1",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fwearables%2Fwatches_1.png?alt=media&token=0a587d52-2093-4464-86a4-aa9d30358d35",
+        "isNew": true
+      },
+      {
+        "id": 2,
+        "name": "Wearables 2",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fwearables%2Fwatches_2.png?alt=media&token=96a00f89-fa25-4e70-821d-18ccd998ad6a",
+        "isNew": true
+      },
+      {
+        "id": 3,
+        "name": "Wearables 3",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fwearables%2Fwatches_3.png?alt=media&token=fa8a8b67-39ac-4bdf-b293-9e34f4fee81a",
+        "isNew": false
+      },
+      {
+        "id": 4,
+        "name": "Wearables 4",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fwearables%2Fwatches_4.png?alt=media&token=779637de-b63e-418e-8f39-942eec0d4823",
+        "isNew": false
+      },
+      {
+        "id": 5,
+        "name": "Wearables 5",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fwearables%2Fwatches_5.png?alt=media&token=50b8d412-5fbd-4dce-b0ea-defa28348d4c",
+        "isNew": false
+      }
+    ],
+    "accessories": [
+      {
+        "id": 1,
+        "name": "Accessories 1",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Faccessories%2Faccessories_1.png?alt=media&token=0ce31511-cce6-42cd-94b1-71f9ded2ed85",
+        "isNew": true
+      },
+      {
+        "id": 2,
+        "name": "Accessories 2",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Faccessories%2Faccessories_2.png?alt=media&token=6cb65600-37c6-4f66-843f-018e2d2b2adc",
+        "isNew": true
+      },
+      {
+        "id": 3,
+        "name": "Accessories 3",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Faccessories%2Faccessories_3.png?alt=media&token=5597d097-f8ce-43b4-99dd-6215dc33dac0",
+        "isNew": false
+      },
+      {
+        "id": 4,
+        "name": "Accessories 4",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Faccessories%2Faccessories_5.png?alt=media&token=395f8e97-fc50-445f-953c-6831fecc610a",
+        "isNew": false
+      },
+      {
+        "id": 5,
+        "name": "Accessories 5",
+        "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Faccessories%2Faccessories_7.jpg?alt=media&token=8872a4d5-68d3-4da7-90b9-39740984dec5",
+        "isNew": false
+      }
+    ]
+  }
+}

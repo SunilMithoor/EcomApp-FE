@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useRef, useEffect } from "react";
 import Box from "@mui/material/Box";
-import Badge from "@mui/material/Badge";
-import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import { blueGrey, red } from "@mui/material/colors";
+import Tooltip from "@mui/material/Tooltip";
+import { blueGrey, red, grey } from "@mui/material/colors";
 import { makeStyles } from "@mui/styles";
-import Avatar from "@mui/material/Avatar";
+import { CloseOutlined } from "@mui/icons-material";
+import { Avatar } from "@mui/material";
+import PersonIcon from "@mui/icons-material/Person";
 import {
   useFloating,
   autoUpdate,
@@ -19,80 +19,11 @@ import {
   FloatingPortal,
   useMergeRefs,
 } from "@floating-ui/react";
+import message from "../../constants/message.js";
+import Divider from "../../components/common/divider/Divider.js";
 
-// function ProfileDropdown() {
-//   const [anchorEl, setAnchorEl] = useState(null);
-
-//   const handleMouseEnter = (event) => {
-//     setAnchorEl(event.currentTarget);
-//   };
-
-//   const handleMouseLeave = () => {
-//     setAnchorEl(null);
-//   };
-
-//   const isOpen = Boolean(anchorEl);
-
-//   return (
-//     <Box
-//       onMouseEnter={handleMouseEnter}
-//       onMouseLeave={handleMouseLeave}
-//       sx={{ display: "inline-block" }}
-//     >
-//       <IconButton>
-//         <AccountCircleOutlinedIcon sx={{ color: blueGrey[900] }} />{" "}
-//       </IconButton>
-
-//       <Popover
-//         open={isOpen}
-//         anchorEl={anchorEl}
-//         onClose={handleMouseLeave}
-//         anchorOrigin={{
-//           vertical: "bottom",
-//           horizontal: "center",
-//         }}
-//         transformOrigin={{
-//           vertical: "top",
-//           horizontal: "center",
-//         }}
-//         disableRestoreFocus
-//         sx={{
-//           pointerEvents: "none", // Prevents focus issues
-//           mt: 3,
-//         }}
-//         PaperProps={{
-//           onMouseEnter: () => setAnchorEl(anchorEl), // Keep popover open when hovering over it
-//           onMouseLeave: handleMouseLeave, // Close popover when mouse leaves
-//         }}
-//       >
-//         <Box sx={{ padding: "16px", width: "250px", pointerEvents: "auto" }}>
-//           <Typography variant="subtitle1" gutterBottom>
-//             Your Cart
-//           </Typography>
-//           <Typography variant="body2">Item 1 - $20</Typography>
-//           <Typography variant="body2">Item 2 - $15</Typography>
-//           <Typography variant="body2">Item 3 - $10</Typography>
-//           <Typography
-//             variant="body2"
-//             sx={{
-//               textAlign: "right",
-//               marginTop: "8px",
-//               fontWeight: "bold",
-//               color: "#0288d1",
-//               cursor: "pointer",
-//             }}
-//             onClick={() => {
-//               // Navigate to cart page
-//               console.log("Go to cart");
-//             }}
-//           >
-//             View Cart
-//           </Typography>
-//         </Box>
-//       </Popover>
-//     </Box>
-//   );
-// }
+import ProfilePopUpCard from "./ProfilePopUpCard.js";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles({
   popover: {
@@ -103,73 +34,91 @@ const useStyles = makeStyles({
     padding: "4px 8px",
     borderRadius: "4px",
     boxSizing: "border-box",
-    width: "max-content",
-    maxWidth: "calc(100vw - 10px)",
+    position: "absolute", // Positioning the dropdown absolutely
+    top: "100%", // Align below the AppBar
+    left: 0,
+    width: "400px", // Set a fixed width for the dropdown
+    zIndex: 1300, // Ensure it appears above other content
+    // width: "max-content",
+    // maxWidth: "calc(100vw - 10px)",
+
+    marginTop: "6px",
+    maxHeight: "500px",
+    minWidth: "400px",
+    maxWidth: "500px",
+    background: "#fff",
   },
-  closeButton: {
-    marginTop: "8px",
+  icon_hover: {
+    backgroundColor: red[50],
+    borderRadius: "4px",
   },
 });
 
-function ProfileDropdown() {
+const initials = ""; //SG
+
+function ProfileDropdown({ onClick }) {
   const classes = useStyles();
+  const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
+
   // Use `useFloating` for positioning and `useHover` for hover interaction.
   const { refs, floatingStyles, context } = useFloating({
     open,
     onOpenChange: setOpen,
     whileElementsMounted: autoUpdate,
+    placement: "bottom-start", // Dropdown opens below the trigger
     middleware: [
-      offset(5),
+      offset(8), // Space between trigger and dropdown
       flip({
-        fallbackAxisSideDirection: "end",
+        fallbackPlacements: ["top-start"], // Flip to top if necessary
         padding: 5,
       }),
-      shift({ padding: 5 }),
+      shift({ padding: 5 }), // Prevent overflow
     ],
   });
 
-  const hover = useHover(context, { delay: { open: 100, close: 100 } }); // Add delay for smoother interaction.
+  const hover = useHover(context, { delay: { open: 100, close: 100 } });
   const interactions = useInteractions([hover]);
   const triggerRef = useMergeRefs([refs.setReference]);
   const contentRef = useMergeRefs([refs.setFloating]);
 
+  const closeDropdown = () => {
+    setOpen(false); // Close the dropdown when this function is called
+  };
+
+  const handleViewAllClick = () => {
+    setOpen(false); // Close the dropdown
+    // Navigate to the notifications page
+    navigate("/profile");
+  };
+
   return (
-    <div className="App">
+    <div>
       <IconButton
         ref={triggerRef}
         {...interactions.getReferenceProps()}
-        className="PopoverTrigger"
         sx={{
-          backgroundColor: "transparent", // Default background
+          backgroundColor: open ? red[50] : "transparent", // Background color when open
+          borderRadius: "4px", // Ensures square shape
           "&:hover": {
-            backgroundColor: red[50], // Light red background on hover
-            borderRadius: "4px", // Square shape (4px border radius for slight rounding)
+            backgroundColor: red[50], // Same hover color
+            borderRadius: "4px", // Ensure consistent border-radius on hover
           },
         }}
+        className="PopoverTrigger"
       >
-        {/* <AccountCircleOutlinedIcon
-          sx={{
-            color: blueGrey[900], // Default icon color
-            transition: "filter 0.3s ease", // Smooth transition
-            "&:hover": {
-              filter: "brightness(1.5)", // Increase brightness for a tinted effect
-            },
-          }}
-        /> */}
-
         <Avatar
           variant="circular"
           sx={{
             bgcolor: blueGrey[900],
             cursor: "pointer",
-            transition: "filter 0.3s ease", // Smooth transition
-            "&:hover": {
-              filter: "brightness(1.5)", // Increase brightness for a tinted effect
-            },
+            width: 36, // Reduced width
+            height: 36, // Reduced height
+            fontSize: 16, // Adjust font size for initials
           }}
+          onClick={onClick}
         >
-          SG
+          {initials ? initials : <PersonIcon fontSize="small" />}
         </Avatar>
       </IconButton>
       {open && (
@@ -178,35 +127,52 @@ function ProfileDropdown() {
             ref={contentRef}
             style={{
               ...floatingStyles,
-              marginTop: "10px",
             }}
-            {...interactions.getFloatingProps()}
             className={classes.popover}
+            {...interactions.getFloatingProps()}
           >
             <Box>
-              <h2 className="PopoverHeading">My popover heading</h2>
-              <p className="PopoverDescription">My popover description</p>
-              <Typography variant="subtitle1" gutterBottom>
-                Search
-              </Typography>
-              <Typography variant="body2">Item 1 - $20</Typography>
-              <Typography variant="body2">Item 2 - $15</Typography>
-              <Typography variant="body2">Item 3 - $10</Typography>
-              <Typography
-                variant="body2"
-                className="PopoverClose"
-                onClick={() => setOpen(false)}
-                type="button"
+              <Box
                 sx={{
-                  textAlign: "right",
-                  marginTop: "8px",
-                  fontWeight: "bold",
-                  color: "#0288d1",
-                  cursor: "pointer",
+                  mt: 0.5,
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
-                View Cart
-              </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: "bold", // Make the text bold
+                    display: "flex",
+                    flex: 1,
+                    justifyContent: "start",
+                    alignItems: "start",
+                    textAlign: "left", // Align text to the left
+                  }}
+                >
+                  {message.profile}
+                </Typography>
+
+                <Tooltip title={message.close}>
+                  <IconButton
+                    onClick={closeDropdown}
+                    aria-label="Close"
+                    size="small"
+                    sx={{ color: blueGrey[900] }}
+                  >
+                    <CloseOutlined fontSize="small" />
+                  </IconButton>
+                </Tooltip>
+              </Box>
+
+              <Divider sx={{ my: 1 }} />
+
+              <ProfilePopUpCard
+                closeDropdown={closeDropdown}
+                onCLick={onClick}
+              />
             </Box>
           </div>
         </FloatingPortal>

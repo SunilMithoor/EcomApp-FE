@@ -1,11 +1,12 @@
 import React from "react";
+import DefaultPage from "../default/Default";
 
-const Tablets = () => {
+function Tablets() {
   return (
     <div>
-      <p>Tablets</p>
+      <DefaultPage />
     </div>
   );
-};
+}
 
 export default Tablets;

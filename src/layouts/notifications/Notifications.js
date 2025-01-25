@@ -1,12 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import DefaultPage from "../default/Default";
 
 function Notifications() {
   const { id } = useParams();
   return (
     <div>
-      <p>Notifications</p>
-      <p>Notification Details for ID: {id}</p>
+      <DefaultPage />
     </div>
   );
 }
