@@ -30,7 +30,8 @@ function NotificationPopUpCard({ data, closeDropdown }) {
     >
       {items.map((item) => (
         <Card
-          sx={{ boxShadow: 0, cursor: "pointer", backgroundColor: "#F8F8F8" }}
+          elevation="0"
+          sx={{ boxShadow: 0, cursor: "pointer", backgroundColor: "#fff" }}
           key={item.id}
           onClick={() => handleCardClick(item.id)}
         >
@@ -38,9 +39,9 @@ function NotificationPopUpCard({ data, closeDropdown }) {
             variant="outlined"
             sx={{
               "&[data-active]": {
-                backgroundColor: "#F8F8F8", // Active background color
+                backgroundColor: "#fff", // Active background color
                 "&:hover": {
-                  backgroundColor: "#CFCFCF", // Darker hover color
+                  backgroundColor: blueGrey[50], // Darker hover color
                 },
               },
             }}

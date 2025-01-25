@@ -1,84 +1,61 @@
+/* Main app layout */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 100vh; /* Ensure the container takes the full height of the viewport */
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-shrink: 0;
 }
-
-
 
 .App-footer {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-shrink: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.App-main {
+  flex: 1; /* Ensures the main content takes up available space */
+  padding: 1rem; /* Add padding for better spacing */
+  height: auto; /* Allow height to expand based on content */
+  min-height: 0; /* Prevents the container from shrinking */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Apply to the body or the element that should have the scrollbar */
+/* Scrollbar customization */
 body {
   overflow: auto; /* Ensure that scrollbars appear when necessary */
 }
 
-/* Customize the scrollbar for webkit browsers */
 ::-webkit-scrollbar {
-  width: 5px; /* Set the width of the vertical scrollbar */
-  height: 5px; /* Set the height of the horizontal scrollbar */
+  width: 5px; /* Vertical scrollbar width */
+  height: 5px; /* Horizontal scrollbar height */
 }
 
-/* Customize the scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
-  background-color: black; /* Color of the thumb */
-  border-radius: 0px; /* Rounded corners for the thumb */
+  background-color: black; /* Scrollbar thumb color */
+  border-radius: 10px; /* Rounded corners */
 }
 
-/* Customize the scrollbar track (background area) */
 ::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Background color of the track */
-  border-radius: 10px; /* Rounded corners for the track */
+  background-color: #f1f1f1; /* Track color */
 }
 
-/* When the user hovers over the scrollbar */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #555; /* Darker color for the thumb on hover */
+  background-color: #555; /* Darker color on hover */
+}
 
-  .main-content {
-    padding-top: 5rem;
-    padding-left: 1rem;
+@media (max-width: 600px) {
+  .menu-icon-container {
+    justify-content: flex-end; /* Ensure alignment to the right */
   }
+  .menu-icon {
+    margin-right: 16px; /* Add space from the edge */
+  }
+}
+
+@font-face {
+  font-family: "merriweather";
+  src: url("/public/fonts/merriweather-italic.woff") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }

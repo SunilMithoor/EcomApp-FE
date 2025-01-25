@@ -26,7 +26,7 @@ import { LoadingButton } from "@mui/lab";
 import { addSubscriber } from "../../../services/localService/LocalService";
 import { blueGrey } from "@mui/material/colors";
 
-function FooterNew() {
+function Footer() {
   const [email, setEmail] = useState("");
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const [buttonText, setButtonText] = useState("Subscribe");
@@ -168,12 +168,13 @@ function FooterNew() {
 
           <CardMedia
             component="img"
-            image={"images/logo_new.png"}
+            image={"logo/logo_new_trans_round.png"}
             alt={"Image"}
             loading="lazy"
             sx={{
-              width: 75,
-
+              background: "#1c2431",
+              maxWidth: 100,
+              maxHeight: 100,
               objectFit: "cover", // Ensures the image covers the entire box
             }}
           />
@@ -287,7 +288,7 @@ function FooterNew() {
             display="block"
             sx={{ textAlign: "left", fontWeight: "bold" }}
           >
-            <IconButton color="inherit">
+            <IconButton color="inherit" sx={{ paddingLeft: 0 }}>
               <Email />
             </IconButton>
             sunil@gmail.com
@@ -297,7 +298,7 @@ function FooterNew() {
             display="block"
             sx={{ textAlign: "left", fontWeight: "bold" }}
           >
-            <IconButton color="inherit">
+            <IconButton color="inherit" sx={{ paddingLeft: 0 }}>
               <Place />
             </IconButton>
             Bengaluru, KAR, INDIA
@@ -307,7 +308,7 @@ function FooterNew() {
             display="block"
             sx={{ textAlign: "left", fontWeight: "bold" }}
           >
-            <IconButton color="inherit">
+            <IconButton color="inherit" sx={{ paddingLeft: 0 }}>
               <Call />
             </IconButton>
             +91 XXXXXXXXXX
@@ -317,7 +318,7 @@ function FooterNew() {
             display="block"
             sx={{ textAlign: "left", fontWeight: "bold" }}
           >
-            <IconButton color="inherit">
+            <IconButton color="inherit" sx={{ paddingLeft: 0 }}>
               <Fax />
             </IconButton>
             +91 XXX XXX XXX
@@ -475,4 +476,4 @@ function FooterNew() {
   );
 }
 
-export default FooterNew;
+export default Footer;

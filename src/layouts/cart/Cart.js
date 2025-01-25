@@ -27,7 +27,14 @@ function GetCartItems() {
   }
 
   return (
-    <Box sx={{ padding: 2 }}>
+    <Box
+      sx={{
+        padding: 2,
+        backgroundColor: "#f5f5f5",
+        height: "auto",
+        minHeight: "100vh",
+      }}
+    >
       {/* Backdrop Loader */}
       <BackDropLoader ref={loaderRef} />
 

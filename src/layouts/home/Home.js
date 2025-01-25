@@ -3,6 +3,7 @@ import { useFetchHome } from "../../hooks/home";
 import NoData from "../../components/common/nodataavailable/NoDataCustom";
 import { Box, Alert, Typography } from "@mui/material";
 import BackDropLoader from "../../components/common/loaders/BackDropLoader";
+import DefaultPage from "../default/Default";
 
 function Home() {
   const { data, isLoading, error } = useFetchHome();
@@ -18,13 +19,16 @@ function Home() {
   }, [isLoading]);
 
   // Normalize cartItems to an empty array if null
-  let homeItems = [];
+  let homeItems = {};
   if (data.success === true) {
-    homeItems = data || [];
+    homeItems = data.data || {};
   }
 
+  // Check if homeItems is empty
+  const isHomeItemsEmpty = Object.keys(homeItems).length === 0;
+
   return (
-    <Box sx={{ padding: 2, backgroundColor: "#f5f5f5", height: "100vh" }}>
+    <Box sx={{ padding: 2, height: "auto", minHeight: "80vh" }}>
       {/* Backdrop Loader */}
       <BackDropLoader ref={loaderRef} />
 
@@ -41,7 +45,7 @@ function Home() {
       )}
 
       {/* No Data UI */}
-      {!isLoading && !error && (
+      {!isLoading && !error && isHomeItemsEmpty && (
         <Box
           display="flex"
           justifyContent="center"
@@ -53,10 +57,11 @@ function Home() {
       )}
 
       {/* Success UI */}
-      {!isLoading && !error && (
-        <Typography variant="h4" component="p">
-          {/* Home */}
-        </Typography>
+
+      {!isLoading && !error && !isHomeItemsEmpty && (
+        <div>
+          <DefaultPage />
+        </div>
       )}
     </Box>
   );

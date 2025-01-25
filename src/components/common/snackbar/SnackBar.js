@@ -7,12 +7,12 @@ function SnackBar({ handleOpen, handleClose, severity, message }) {
       open={handleOpen}
       autoHideDuration={3000}
       onClose={handleClose}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
     >
       <Alert
         onClose={handleClose}
         severity={severity} //error,info,success,warning
-        // variant="filled"
+        variant="filled"
         sx={{ width: "100%" }}
       >
         {message}

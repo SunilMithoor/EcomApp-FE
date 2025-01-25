@@ -36,14 +36,25 @@ const useStyles = makeStyles({
     padding: "4px 8px",
     borderRadius: "4px",
     boxSizing: "border-box",
-    width: "max-content",
-    maxWidth: "calc(100vw - 10px)",
+    position: "absolute", // Positioning the dropdown absolutely
+    top: "100%", // Align below the AppBar
+    left: 0,
+    width: "400px", // Set a fixed width for the dropdown
+    zIndex: 1300, // Ensure it appears above other content
+    // width: "max-content",
+    // maxWidth: "calc(100vw - 10px)",
+
+    marginTop: "12px",
+    maxHeight: "500px",
+    minWidth: "400px",
+    maxWidth: "500px",
+    background: "#fff",
   },
-  closeButton: {
-    marginTop: "8px",
+  icon_hover: {
+    backgroundColor: red[50],
+    borderRadius: "4px",
   },
 });
-
 function SearchDropdown() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -53,13 +64,14 @@ function SearchDropdown() {
     open,
     onOpenChange: setOpen,
     whileElementsMounted: autoUpdate,
+    placement: "bottom-start", // Dropdown opens below the trigger
     middleware: [
-      offset(5),
+      offset(8), // Space between trigger and dropdown
       flip({
-        fallbackAxisSideDirection: "end", // Ensure the dropdown flips when necessary
+        fallbackPlacements: ["top-start"], // Flip to top if necessary
         padding: 5,
       }),
-      shift({ padding: 5 }), // Helps in shifting the dropdown to fit in the viewable area
+      shift({ padding: 5 }), // Prevent overflow
     ],
   });
 
@@ -88,46 +100,39 @@ function SearchDropdown() {
   };
 
   return (
-    <div className="App">
+    <div>
       <IconButton
         ref={triggerRef}
         {...interactions.getReferenceProps()}
-        className="PopoverTrigger"
         sx={{
-          backgroundColor: "transparent",
+          backgroundColor: open ? red[50] : "transparent", // Background color when open
+          borderRadius: "4px", // Ensures square shape
           "&:hover": {
-            backgroundColor: red[50],
-            borderRadius: "4px",
+            backgroundColor: red[50], // Same hover color
+            borderRadius: "4px", // Ensure consistent border-radius on hover
           },
         }}
+        className="PopoverTrigger"
       >
         <SearchOutlinedIcon
           sx={{
-            color: blueGrey[900],
-            transition: "filter 0.3s ease",
+            color: open ? red[500] : blueGrey[900], // Icon color changes when open
+            transition: "filter 0.3s ease, color 0.3s ease", // Smooth transitions
             "&:hover": {
-              filter: "brightness(1.5)",
+              filter: "brightness(1.5)", // Brightness effect on hover
             },
           }}
         />
       </IconButton>
-
       {open && (
         <FloatingPortal>
           <div
             ref={contentRef}
             style={{
               ...floatingStyles,
-              border: "40px",
-              marginTop: "18px",
-              maxHeight: "500px",
-              minHeight: "400px",
-              minWidth: "400px",
-              maxWidth: "500px",
-              background: "#F8F8F8",
             }}
-            {...interactions.getFloatingProps()}
             className={classes.popover}
+            {...interactions.getFloatingProps()}
           >
             <Box>
               <Box

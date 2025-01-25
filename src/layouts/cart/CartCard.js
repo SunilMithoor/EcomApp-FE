@@ -277,7 +277,7 @@ function GetCartCard({ data }) {
                         style={{
                           marginLeft: 5,
                           verticalAlign: "middle",
-                          color: "#fff", // Set the color to white
+                          color: "#f5f5f5", // Set the color to white
                         }}
                       />
                     </Typography>

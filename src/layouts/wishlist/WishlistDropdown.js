@@ -36,11 +36,23 @@ const useStyles = makeStyles({
     padding: "4px 8px",
     borderRadius: "4px",
     boxSizing: "border-box",
-    width: "max-content",
-    maxWidth: "calc(100vw - 10px)",
+    position: "absolute", // Positioning the dropdown absolutely
+    top: "100%", // Align below the AppBar
+    left: 0,
+    width: "400px", // Set a fixed width for the dropdown
+    zIndex: 1300, // Ensure it appears above other content
+    // width: "max-content",
+    // maxWidth: "calc(100vw - 10px)",
+
+    marginTop: "12px",
+    maxHeight: "500px",
+    minWidth: "400px",
+    maxWidth: "500px",
+    background: "#fff",
   },
-  closeButton: {
-    marginTop: "8px",
+  icon_hover: {
+    backgroundColor: red[50],
+    borderRadius: "4px",
   },
 });
 
@@ -48,22 +60,24 @@ function WishlistDropdown() {
   const classes = useStyles();
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
+
   // Use `useFloating` for positioning and `useHover` for hover interaction.
   const { refs, floatingStyles, context } = useFloating({
     open,
     onOpenChange: setOpen,
     whileElementsMounted: autoUpdate,
+    placement: "bottom-start", // Dropdown opens below the trigger
     middleware: [
-      offset(5),
+      offset(8), // Space between trigger and dropdown
       flip({
-        fallbackAxisSideDirection: "end",
+        fallbackPlacements: ["top-start"], // Flip to top if necessary
         padding: 5,
       }),
-      shift({ padding: 5 }),
+      shift({ padding: 5 }), // Prevent overflow
     ],
   });
 
-  const hover = useHover(context, { delay: { open: 100, close: 100 } }); // Add delay for smoother interaction.
+  const hover = useHover(context, { delay: { open: 100, close: 100 } });
   const interactions = useInteractions([hover]);
   const triggerRef = useMergeRefs([refs.setReference]);
   const contentRef = useMergeRefs([refs.setFloating]);
@@ -93,24 +107,25 @@ function WishlistDropdown() {
   const badgeCount = dataItems.length || 0;
 
   return (
-    <div className="App">
+    <div>
       <IconButton
         ref={triggerRef}
         {...interactions.getReferenceProps()}
-        className="PopoverTrigger"
         sx={{
-          backgroundColor: "transparent", // Default background
+          backgroundColor: open ? red[50] : "transparent", // Background color when open
+          borderRadius: "4px", // Ensures square shape
           "&:hover": {
-            backgroundColor: red[50], // Light red background on hover
-            borderRadius: "4px", // Square shape (4px border radius for slight rounding)
+            backgroundColor: red[50], // Same hover color
+            borderRadius: "4px", // Ensure consistent border-radius on hover
           },
         }}
+        className="PopoverTrigger"
       >
         <Badge
           badgeContent={badgeCount}
           sx={{
             "& .MuiBadge-badge": {
-              backgroundColor: blueGrey[700], // Set badge background to red
+              backgroundColor: blueGrey[900], // Set badge background to red
               color: "white", // Set badge content color to white
             },
           }}
@@ -118,7 +133,7 @@ function WishlistDropdown() {
           <FavoriteBorderOutlinedIcon
             onClick={handleViewAllClick} // Close and navigate
             sx={{
-              color: blueGrey[900], // Default icon color
+              color: open ? red[500] : blueGrey[900], // Icon color changes when open
               transition: "filter 0.3s ease", // Smooth transition
               "&:hover": {
                 filter: "brightness(1.5)", // Increase brightness for a tinted effect
@@ -133,15 +148,9 @@ function WishlistDropdown() {
             ref={contentRef}
             style={{
               ...floatingStyles,
-              border: "40px",
-              marginTop: "18px",
-              maxHeight: "500px",
-              minWidth: "300px",
-              maxWidth: "400px",
-              background: "#F8F8F8",
             }}
-            {...interactions.getFloatingProps()}
             className={classes.popover}
+            {...interactions.getFloatingProps()}
           >
             <Box>
               <Box
@@ -237,13 +246,14 @@ function WishlistDropdown() {
                     textTransform: "none",
                     display: "block", // Ensures it's treated as a block element for centering
                     margin: "8px auto", // Center horizontally with margin
-                    fontWeight: "bold",
+                    fontWeight: "normal",
                     backgroundColor: "#0288d1", // Blue background
                     color: "#ffffff", // White text
                     cursor: "pointer",
                     textAlign: "center", // Center align the text
-                    padding: "8px 16px", // Add padding for better appearance
-                    borderRadius: "4px", // Add rounded corners
+                    paddingX: 1.5, // Add padding for better appearance
+                    paddingY: 0.3,
+                    borderRadius: "2px", // Add rounded corners
                     "&:hover": {
                       backgroundColor: "#0277bd", // Slightly darker blue on hover
                     },

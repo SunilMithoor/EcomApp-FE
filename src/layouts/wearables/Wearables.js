@@ -1,11 +1,12 @@
 import React from "react";
+import DefaultPage from "../default/Default";
 
-const Wearables = () => {
+function Wearables() {
   return (
     <div>
-      <p>Wearables</p>
+      <DefaultPage />
     </div>
   );
-};
+}
 
 export default Wearables;
