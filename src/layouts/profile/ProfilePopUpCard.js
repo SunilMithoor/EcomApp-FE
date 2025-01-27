@@ -11,9 +11,7 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import Divider from "../../components/common/divider/Divider.js";
 import DefaultAvatar from "../../components/common/avatar/DefaultAvatar.js";
 
-import LogoutDialog from "./Logout.js";
-
-function ProfilePopUpCard({ closeDropdown }) {
+function ProfilePopUpCard({ closeDropdown, signInSinUpClick, logoutClick }) {
   const navigate = useNavigate();
 
   function handleCardClick(itemId) {
@@ -26,11 +24,6 @@ function ProfilePopUpCard({ closeDropdown }) {
     } else if (itemId === 2) {
       navigate("/profile");
     }
-  }
-
-  function handleSignInSignUpClick(item) {
-    // Close dropdown before navigating
-    closeDropdown();
   }
 
   return (
@@ -61,7 +54,7 @@ function ProfilePopUpCard({ closeDropdown }) {
                   textDecoration: "underline",
                 },
               }}
-              onClick={handleSignInSignUpClick}
+              onClick={signInSinUpClick}
             >
               {message.signin_signup_msg}
             </Typography>
@@ -85,7 +78,7 @@ function ProfilePopUpCard({ closeDropdown }) {
       />
       <PaperButton
         leftIcon={LogoutOutlinedIcon}
-        onClick={() => handleCardClick(3)}
+        onClick={logoutClick}
         text={message.logout}
         rightIcon={ChevronRightOutlinedIcon}
       />

@@ -42,7 +42,7 @@ const useStyles = makeStyles({
     // width: "max-content",
     // maxWidth: "calc(100vw - 10px)",
 
-    marginTop: "6px",
+    marginTop: "10px",
     maxHeight: "500px",
     minWidth: "400px",
     maxWidth: "500px",
@@ -56,7 +56,7 @@ const useStyles = makeStyles({
 
 const initials = ""; //SG
 
-function ProfileDropdown({ onClick }) {
+function ProfileDropdown({ signInSinUpClick, logoutClick }) {
   const classes = useStyles();
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
@@ -86,12 +86,6 @@ function ProfileDropdown({ onClick }) {
     setOpen(false); // Close the dropdown when this function is called
   };
 
-  const handleViewAllClick = () => {
-    setOpen(false); // Close the dropdown
-    // Navigate to the notifications page
-    navigate("/profile");
-  };
-
   return (
     <div>
       <IconButton
@@ -116,7 +110,7 @@ function ProfileDropdown({ onClick }) {
             height: 36, // Reduced height
             fontSize: 16, // Adjust font size for initials
           }}
-          onClick={onClick}
+          onClick={signInSinUpClick}
         >
           {initials ? initials : <PersonIcon fontSize="small" />}
         </Avatar>
@@ -171,7 +165,10 @@ function ProfileDropdown({ onClick }) {
 
               <ProfilePopUpCard
                 closeDropdown={closeDropdown}
-                onCLick={onClick}
+                signInSinUpClick={signInSinUpClick}
+                logoutClick={logoutClick}
+                // signInSinUpClick={() => console.log("Sign In/Sign Up Clicked")}
+                // logoutClick={() => console.log("Logout Clicked")}
               />
             </Box>
           </div>

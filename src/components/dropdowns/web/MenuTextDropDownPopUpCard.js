@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import message from "../../../constants/message.js";
 import { Typography, Box, Grid2, Skeleton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { blueGrey } from "@mui/material/colors";
+import { blueGrey, red } from "@mui/material/colors";
 
 function MenuTextDropDownPopUpCard({ data, type, closeDropdown }) {
   const items = Array.isArray(data) ? data : [];
@@ -55,6 +55,8 @@ function MenuTextDropDownPopUpCard({ data, type, closeDropdown }) {
       display="flex"
       flexDirection="row"
       gap={0.3}
+      paddingX={2}
+      paddingY={2}
       justifyContent="flex-start" // Aligns grid items to the left
       alignItems="flex-start"
       textAlign="left"
@@ -80,9 +82,12 @@ function MenuTextDropDownPopUpCard({ data, type, closeDropdown }) {
                 margin: "0 auto",
                 overflow: "hidden",
                 display: "flex",
+                cursor: "pointer",
                 flexDirection: "column",
+                transition: "transform 0.3s ease-in-out",
                 "&:hover": {
                   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+                  transform: "scale(1.1)",
                 },
               }}
               key={item.id}
@@ -92,14 +97,14 @@ function MenuTextDropDownPopUpCard({ data, type, closeDropdown }) {
                 <Box
                   sx={{
                     position: "absolute",
+                    color: "whitesmoke",
                     top: 8,
                     left: 8,
-                    backgroundColor: "rgba(128, 128, 128, 0.5)",
-                    color: "black",
+                    backgroundColor: red[900],
                     fontSize: "12px",
                     fontWeight: "bold",
-                    padding: "2px 6px",
-                    borderRadius: "4px",
+                    padding: "4px 8px",
+                    borderRadius: "0px",
                   }}
                 >
                   {message.new}

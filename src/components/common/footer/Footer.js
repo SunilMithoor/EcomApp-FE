@@ -168,12 +168,15 @@ function Footer() {
 
           <CardMedia
             component="img"
-            image={"logo/logo_new_trans_round.png"}
+            image={require("../../../assets/logo/logo_new_16.png")}
             alt={"Image"}
             loading="lazy"
             sx={{
+              display: "flex",
+              alignItems: "flex-start",
+              justifyContent: "flex-start",
               background: "#1c2431",
-              maxWidth: 100,
+              maxWidth: 300,
               maxHeight: 100,
               objectFit: "cover", // Ensures the image covers the entire box
             }}
@@ -183,6 +186,7 @@ function Footer() {
             variant="body2"
             sx={{
               mr: 4,
+              mt: 2,
               maxWidth: 350,
               textAlign: "left",
               lineHeight: 1.8, // Adjust the line height (e.g., 1.5, 1.8, 2, etc.)

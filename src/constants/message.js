@@ -84,4 +84,7 @@ module.exports = {
   learn_more: "Learn More",
   explore_all: (code) => `Explore All ${code}`,
   new: "New",
+  welcome_to: "Welcome to",
+  logout_msg: "You are attempting to log out of MG App.",
+  logout_confirm: "Are you sure?",
 };

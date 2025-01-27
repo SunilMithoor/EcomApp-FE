@@ -259,7 +259,7 @@ function SignInSignUp({ isOpen, onClose, fullScreen }) {
       >
         {/* Backdrop Loader */}
         <DialogTitle
-          sx={{ m: 0, p: 1, backgroundColor: "#1c2431" }}
+          sx={{ m: 0, p: 1, backgroundColor: "#252829" }}
           id="customized-dialog-title"
           color="#fff"
         >
