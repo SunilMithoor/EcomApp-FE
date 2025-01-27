@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Dialog,
   DialogActions,
@@ -7,65 +7,87 @@ import {
   DialogTitle,
   Button,
   Typography,
+  Box,
   IconButton,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import message from "../../constants/message";
 
-const LogoutDialog = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+const LogoutDialog = ({ isOpen, onClose, fullScreen }) => {
   const handleLogout = () => {
     console.log("Logged out");
-    setOpen(false);
+    onClose(); // Close the dialog after logout
   };
 
   return (
-    <div>
-      {/* Trigger Button */}
-      <Button variant="contained" color="primary" onClick={handleOpen}>
-        Open Logout Dialog
-      </Button>
-
-      {/* Dialog */}
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>
-          <Typography variant="h6" style={{ fontWeight: "bold" }}>
-            You are attempting to log out of Elegant Themes.
-          </Typography>
-          <IconButton
-            aria-label="close"
-            onClick={handleClose}
-            style={{ position: "absolute", right: 8, top: 8 }}
-          >
-            <CloseIcon />
-          </IconButton>
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText
-            style={{ textAlign: "center", marginBottom: "16px" }}
-          >
-            Are you Sure?
-          </DialogContentText>
-          <Typography variant="subtitle2" align="center" color="textSecondary">
-            Logged in as <strong>estev</strong>
-          </Typography>
-        </DialogContent>
-        <DialogActions
-          style={{ justifyContent: "center", paddingBottom: "16px" }}
+    <Dialog fullScreen={fullScreen} open={isOpen} onClose={onClose}>
+      <DialogTitle>
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          sx={(theme) => ({
+            position: "absolute",
+            right: 8,
+            top: 8,
+            color: "#252829",
+          })}
         >
-          <Button
-            variant="contained"
-            color="success"
-            onClick={handleLogout}
-            style={{ width: "80%" }}
+          <CloseIcon />
+        </IconButton>
+      </DialogTitle>
+      <DialogContent>
+        <Box
+          sx={{
+            backgroundColor: "#fff",
+            borderRadius: 0,
+            boxShadow: 0,
+            textAlign: "center",
+            mt: 1,
+            p: 1,
+            maxWidth: "300px",
+            minWidth: "250px",
+            minHeight: "80px",
+            maxHeight: "auto",
+          }}
+        >
+          <Typography
+            variant="body1"
+            color="#252829"
+            style={{ fontWeight: "bold", fontSize: 20 }}
           >
-            LOG OUT
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </div>
+            {message.logout_msg}
+          </Typography>
+
+          <Typography
+            variant="subtitle1"
+            style={{ fontWeight: "normal", fontSize: 16 }}
+            sx={{
+              mt: 1,
+            }}
+          >
+            {message.logout_confirm}
+          </Typography>
+        </Box>
+      </DialogContent>
+      <DialogActions
+        style={{ justifyContent: "center", paddingBottom: "16px" }}
+      >
+        <Button
+          variant="contained"
+          backgroundColor="#E63329"
+          color="#E63329"
+          onClick={handleLogout}
+          style={{
+            width: "70%",
+            textTransform: "none",
+            background: "#E63329",
+            color: "#fff",
+          }}
+        >
+          {message.logout}
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 };
 

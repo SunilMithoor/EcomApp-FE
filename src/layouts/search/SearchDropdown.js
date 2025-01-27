@@ -26,37 +26,10 @@ import { CloseOutlined } from "@mui/icons-material";
 import { useFetchSearch } from "../../hooks/home.js";
 import { fetchSearch } from "../../services/localService/LocalService.js";
 import SearchPopUpCard from "./SearchPopUpCard.js";
+import { IconDropDownUseStyles } from "../../styles/DropdownStyles.js";
 
-const useStyles = makeStyles({
-  popover: {
-    backgroundColor: "white",
-    boxShadow: "0px 2px 4px rgba(96, 125, 139, 0.5)",
-    border: "1px solid #ddd",
-    fontSize: "90%",
-    padding: "4px 8px",
-    borderRadius: "4px",
-    boxSizing: "border-box",
-    position: "absolute", // Positioning the dropdown absolutely
-    top: "100%", // Align below the AppBar
-    left: 0,
-    width: "400px", // Set a fixed width for the dropdown
-    zIndex: 1300, // Ensure it appears above other content
-    // width: "max-content",
-    // maxWidth: "calc(100vw - 10px)",
-
-    marginTop: "12px",
-    maxHeight: "500px",
-    minWidth: "400px",
-    maxWidth: "500px",
-    background: "#fff",
-  },
-  icon_hover: {
-    backgroundColor: red[50],
-    borderRadius: "4px",
-  },
-});
 function SearchDropdown() {
-  const classes = useStyles();
+  const classes = IconDropDownUseStyles();
   const [open, setOpen] = React.useState(false);
 
   // Use `useFloating` for positioning and `useHover` for hover interaction.

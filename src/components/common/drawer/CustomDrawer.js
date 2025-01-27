@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { makeStyles } from "@mui/styles";
 import {
   Drawer,
@@ -17,7 +17,7 @@ import {
   ChevronRight as ChevronRightIcon,
   ChevronLeft as ChevronLeftIcon,
 } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+
 import Divider from "../divider/Divider";
 import message from "../../../constants/message";
 import DefaultAvatar from "../avatar/DefaultAvatar";
@@ -27,8 +27,10 @@ import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import PaperButton from "../../common/paper/PaperButton";
-import SignInSignUp from "../../../layouts/signinsignup/SignInSignUp";
 import { useNavigate } from "react-router-dom";
+import { useFetchMenuDropDowns } from "../../../hooks/home.js";
+import ListSubItemPopUpCard from "../../dropdowns/mobile/ListSubItemPopUpCard.js";
+import PropagateLoaders from "../loaders/PropagateLoader.js";
 
 const useStyles = makeStyles({
   drawerPaper: {
@@ -60,34 +62,46 @@ const useStyles = makeStyles({
   },
 });
 
-function CustomDrawer() {
+function CustomDrawer({ signInSinUpClick, logoutClick }) {
   const classes = useStyles();
   const navigate = useNavigate();
 
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [currentMenu, setCurrentMenu] = useState("main"); // Track current menu view
-  const [isPopupOpen, setPopupOpen] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
+  const { data, isLoading, error } = useFetchMenuDropDowns();
 
-  const menuItems = [
-    { label: "Phones", to: "/phones", subItems: ["Android", "iOS"] },
-    { label: "Tablets", to: "/tablets", subItems: ["Windows", "iPad"] },
-    { label: "Wearables", to: "/wearables", subItems: ["Watches", "Bands"] },
-    { label: "Audio", to: "/audio", subItems: ["Headphones", "Speakers"] },
-    {
-      label: "Accessories",
-      to: "/accessories",
-      subItems: ["Cables", "Chargers"],
-    },
-  ];
+  // Memoize dataItems to prevent unnecessary re-calculations on every render
+  const dataItems = useMemo(() => {
+    if (data?.success === true) {
+      return data.data || [];
+    }
+    return [];
+  }, [data]); // Only recompute when 'data' changes
 
-  const togglePopup = () => setPopupOpen(!isPopupOpen);
+  // Memoize menuItems to optimize recomputations
+  const menuItems = useMemo(() => {
+    return Object.keys(dataItems).map((key) => ({
+      index: key || 0,
+      label: key.charAt(0).toUpperCase() + key.slice(1), // Capitalize category names
+      subItems: (dataItems[key] || []).map((item) => item), // Keep full item object
+    }));
+  }, [dataItems]); // Only recompute when 'dataItems' changes
 
   function toggleDrawer(open) {
     setDrawerOpen(open);
     // setMenuRotated(open);
     if (!open) setCurrentMenu("main"); // Reset to main menu on close
   }
+
+  const handleSignInSignUpClick = () => {
+    toggleDrawer(false); // Close the drawer
+    signInSinUpClick(); // Execute passed function
+  };
+
+  const handleLogoutClick = () => {
+    toggleDrawer(false); // Close the drawer
+    logoutClick(); // Execute passed function
+  };
 
   function openSubMenu(menuIndex) {
     setCurrentMenu(menuIndex); // Set submenu index
@@ -157,171 +171,230 @@ function CustomDrawer() {
         }}
       >
         <div style={{ width: "100%" }}>
-          {currentMenu === "main" ? (
-            // Main Menu
-            <>
-              <div
-                style={{
+          <Box
+            sx={{
+              height: "auto",
+              width: "100vw", // Full screen width
+              overflowY: "auto", // Enable vertical scrolling if content exceeds the height
+              justifyContent:
+                isLoading || error || menuItems.length === 0
+                  ? "center"
+                  : "flex-start", // Center for loader, error, or empty states
+              alignItems:
+                isLoading || error || menuItems.length === 0
+                  ? "center"
+                  : "flex-start", // Center for loader, error, or empty states, // Center horizontally
+            }}
+          >
+            {/* Display CircularProgress while loading */}
+            {isLoading && (
+              <Box
+                sx={{
                   display: "flex",
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                   alignItems: "center",
-                  padding: 10,
+                  height: "100%", // Ensure the loader occupies the full height of its container
+                  width: "100%", // Ensure the loader occupies the full width of its container
                 }}
               >
-                <h3 style={{ flexGrow: 1 }}>{}</h3>
+                <PropagateLoaders loading={isLoading} />
+              </Box>
+            )}
 
-                <IconButton
-                  onClick={() => toggleDrawer(false)}
-                  color="inherit"
-                  aria-label="close"
-                  sx={{
-                    transform: isDrawerOpen
-                      ? "rotateY(180deg)"
-                      : "rotateY(0deg)", // Flip the close icon on open
-                    transition: "transform 0.3s ease-in-out", // Smooth flip transition
-                  }}
-                >
-                  <CloseIcon />
-                </IconButton>
-              </div>
-              <Divider sx={{ my: 0.5 }} />
-              <List>
-                {menuItems.map((item, index) => (
-                  <ListItem
-                    button
-                    key={index}
-                    onClick={() => openSubMenu(index)}
-                    sx={{
-                      cursor: "pointer",
-                    }}
-                  >
-                    <ListItemText primary={item.label} />
-                    <ChevronRightIcon />
-                  </ListItem>
-                ))}
-              </List>
-              <Divider sx={{ my: 0.5 }} />
-              <div style={{ marginTop: "auto", padding: "10px" }}>
-                <Box
-                  display="flex"
-                  flexDirection="column"
-                  gap={0.3} // Add spacing between cards
-                >
-                  <Card display="flex" elevation={0} sx={{ paddingY: 0.5 }}>
-                    <CardHeader
-                      avatar={
-                        <DefaultAvatar
-                        // initials="SG"
-                        ></DefaultAvatar>
-                      }
-                      title={
-                        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                          {message.welcome_msg}
-                        </Typography>
-                      }
-                      subheader={
-                        <Typography
-                          variant="body2"
+            {/* Error UI */}
+            {!isLoading && error && (
+              <Typography variant="body2" color="text.secondary">
+                {data.message ||
+                  "Something went wrong. Please try again later."}
+              </Typography>
+            )}
+
+            {/* No Data UI */}
+            {!isLoading && !error && menuItems.length === 0 && (
+              <Typography variant="body2" color="text.secondary">
+                {message.no_data_available}
+              </Typography>
+            )}
+
+            {/* Success UI */}
+            {!isLoading && !error && menuItems.length > 0 && (
+              <>
+                {currentMenu === "main" ? (
+                  // Main Menu
+                  <>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        padding: 5,
+                      }}
+                    >
+                      <h3 style={{ flexGrow: 1, textAlign: "left" }}>{}</h3>
+                      <IconButton
+                        onClick={() => toggleDrawer(false)}
+                        color="inherit"
+                        aria-label="close"
+                        sx={{
+                          transform: isDrawerOpen
+                            ? "rotateY(180deg)"
+                            : "rotateY(0deg)", // Flip the close icon on open
+                          transition: "transform 0.3s ease-in-out", // Smooth flip transition
+                        }}
+                      >
+                        <CloseIcon />
+                      </IconButton>
+                    </div>
+                    <Divider sx={{ my: 0.5 }} />
+
+                    <List sx={{ width: "100%" }}>
+                      {menuItems.map((item, index) => (
+                        <ListItem
+                          button
+                          key={index}
+                          onClick={() => openSubMenu(index)}
                           sx={{
-                            color: blue[500],
                             cursor: "pointer",
-                            "&:hover": {
-                              textDecoration: "underline",
-                            },
                           }}
-                          onClick={togglePopup}
                         >
-                          {message.signin_signup_msg}
-                        </Typography>
-                      }
-                    />
-                  </Card>
+                          <ListItemText primary={item.label} />
+                          <ChevronRightIcon />
+                        </ListItem>
+                      ))}
+                    </List>
+                  </>
+                ) : (
+                  // Submenu View
+                  <>
+                    <div
+                      style={{
+                        padding: 5,
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div style={{ display: "flex", alignItems: "center" }}>
+                        <IconButton
+                          onClick={goBackToMainMenu}
+                          color="inherit"
+                          aria-label="back"
+                          sx={{
+                            transition: "transform 0.3s ease-in-out", // Smooth transitions
+                          }}
+                        >
+                          <ChevronLeftIcon />
+                        </IconButton>
+                        <h3 style={{ margin: "0 16px", textAlign: "left" }}>
+                          {menuItems[currentMenu].label}
+                        </h3>
+                      </div>
+                      <IconButton
+                        onClick={() => toggleDrawer(false)}
+                        color="inherit"
+                        aria-label="close"
+                        sx={{
+                          transform: isDrawerOpen
+                            ? "rotateY(180deg)"
+                            : "rotateY(0deg)", // Flip the close icon on open
+                          transition: "transform 0.3s ease-in-out", // Smooth flip transition
+                        }}
+                      >
+                        <CloseIcon />
+                      </IconButton>
+                    </div>
+                    <Divider sx={{ my: 0.5 }} />
+                    {/* <List sx={{ width: "100%" }}>
+                      {menuItems[currentMenu].subItems.map((subItem, index) => (
+                        <ListItem
+                          button
+                          onClick={() => toggleDrawer(false)}
+                          key={index}
+                          sx={{
+                            cursor: "pointer",
+                          }}
+                        >
+                          <ListItemText primary={subItem} />
+                        </ListItem>
+                      ))}
+                    </List> */}
 
-                  <PaperButton
-                    leftIcon={ArticleOutlinedIcon}
-                    onClick={() => handleCardClick(1)}
-                    text={message.orders}
-                    rightIcon={ChevronRightOutlinedIcon}
-                  />
-                  <PaperButton
-                    leftIcon={AccountCircleOutlinedIcon}
-                    onClick={() => handleCardClick(2)}
-                    text={message.account}
-                    rightIcon={ChevronRightOutlinedIcon}
-                  />
-                  <PaperButton
-                    leftIcon={LogoutOutlinedIcon}
-                    onClick={() => handleCardClick(3)}
-                    text={message.logout}
-                    rightIcon={ChevronRightOutlinedIcon}
-                  />
-                </Box>
-              </div>
-            </>
-          ) : (
-            // Submenu View
-            <>
-              <div
-                style={{
-                  padding: 10,
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <IconButton
-                  onClick={goBackToMainMenu}
-                  color="inherit"
-                  aria-label="back"
-                  sx={{
-                    transition: "transform 0.3s ease-in-out", // Smooth transitions
-                  }}
-                >
-                  <ChevronLeftIcon />
-                </IconButton>
-                <h3 style={{ margin: "0 16px", flexGrow: 1 }}>
-                  {menuItems[currentMenu].label}
-                </h3>
-                <IconButton
-                  onClick={() => toggleDrawer(false)}
-                  color="inherit"
-                  aria-label="close"
-                  sx={{
-                    transform: isDrawerOpen
-                      ? "rotateY(180deg)"
-                      : "rotateY(0deg)", // Flip the close icon on open
-                    transition: "transform 0.3s ease-in-out", // Smooth flip transition
-                  }}
-                >
-                  <CloseIcon />
-                </IconButton>
-              </div>
-              <Divider sx={{ my: 0.5 }} />
-              <List>
-                {menuItems[currentMenu].subItems.map((subItem, index) => (
-                  <ListItem
-                    button
-                    onClick={() => toggleDrawer(false)}
-                    key={index}
-                    sx={{
-                      cursor: "pointer",
-                    }}
-                  >
-                    <ListItemText primary={subItem} />
-                  </ListItem>
-                ))}
-              </List>
-            </>
-          )}
+                    <ListSubItemPopUpCard
+                      button
+                      key={currentMenu}
+                      sx={{
+                        cursor: "pointer",
+                      }}
+                      type={menuItems[currentMenu].label} // Use id or index as string
+                      data={menuItems[currentMenu].subItems}
+                      index={menuItems[currentMenu].index}
+                      closeMenu={() => toggleDrawer(false)}
+                    />
+                  </>
+                )}
+              </>
+            )}
+          </Box>
+
+          <Divider sx={{ my: 0.5 }} />
+          <div style={{ marginTop: "auto", padding: "10px" }}>
+            <Box
+              display="flex"
+              flexDirection="column"
+              gap={0.3} // Add spacing between cards
+            >
+              <Card display="flex" elevation={0} sx={{ paddingY: 0.5 }}>
+                <CardHeader
+                  avatar={
+                    <DefaultAvatar
+                    // initials="SG"
+                    ></DefaultAvatar>
+                  }
+                  title={
+                    <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                      {message.welcome_msg}
+                    </Typography>
+                  }
+                  subheader={
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: blue[500],
+                        cursor: "pointer",
+                        "&:hover": {
+                          textDecoration: "underline",
+                        },
+                      }}
+                      onClick={handleSignInSignUpClick}
+                    >
+                      {message.signin_signup_msg}
+                    </Typography>
+                  }
+                />
+              </Card>
+
+              <PaperButton
+                leftIcon={ArticleOutlinedIcon}
+                onClick={() => handleCardClick(1)}
+                text={message.orders}
+                rightIcon={ChevronRightOutlinedIcon}
+              />
+              <PaperButton
+                leftIcon={AccountCircleOutlinedIcon}
+                onClick={() => handleCardClick(2)}
+                text={message.account}
+                rightIcon={ChevronRightOutlinedIcon}
+              />
+              <PaperButton
+                leftIcon={LogoutOutlinedIcon}
+                onClick={handleLogoutClick}
+                text={message.logout}
+                rightIcon={ChevronRightOutlinedIcon}
+              />
+            </Box>
+          </div>
         </div>
       </Drawer>
-      {/* SignInSignUp Dialog */}
-      <SignInSignUp
-        isOpen={isPopupOpen}
-        onClose={togglePopup}
-        isLogin={isLogin}
-        toggleForm={() => setIsLogin(!isLogin)}
-      />
     </div>
   );
 }

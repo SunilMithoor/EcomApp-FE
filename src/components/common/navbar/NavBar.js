@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
-import { makeStyles } from "@mui/styles";
 import { Link } from "react-router-dom";
 
 import { useMediaQuery } from "@mui/material";
@@ -15,19 +14,23 @@ import NotificationsDropdown from "../../../layouts/notifications/NotificationsD
 import CustomDrawer from "../drawer/CustomDrawer";
 import { CardMedia } from "@mui/material";
 import MenuTextDropDown from "../../dropdowns/web/MenuTextDropDown";
-import FloatingTextDropDown from "../../dropdowns/FloatingTextDropDown";
-import { IconButton } from "@mui/material";
-import { Menu as MenuIcon } from "@mui/icons-material";
-import { blueGrey } from "@mui/material/colors";
+import FloatingUiCard from "../../dropdowns/example/FloatingUiCard";
+import LogoutDialog from "../../../layouts/profile/Logout";
 
 function NavBar() {
-  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [isSignInSignUpPopupOpen, setSignInSignUpPopupOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
+  const [isLogoutPopupOpen, setLogoutPopupOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 600px)");
 
-  const togglePopup = () => setPopupOpen(!isPopupOpen);
-  const toggleDrawer = () => setDrawerOpen(!drawerOpen);
+  const toggleSignInSignUpPopup = () =>
+    setSignInSignUpPopupOpen(!isSignInSignUpPopupOpen);
+  const toggleLogoutPopup = () => setLogoutPopupOpen(!isLogoutPopupOpen);
+
+  const toggleDrawer = (open) => {
+    setDrawerOpen(open); // Update state to open/close the drawer
+  };
 
   const handleOpenPage = (item) => {
     console.log(`Navigating to ${item}`);
@@ -44,14 +47,19 @@ function NavBar() {
           <Link to="/">
             <CardMedia
               component="img"
-              image="logo/logo_new_square.png"
+              image={require("../../../assets/logo/logo_new_20.png")}
               alt="Logo"
               sx={{
                 cursor: "pointer",
-                maxWidth: isMobile ? 80 : 100,
-                maxHeight: isMobile ? 80 : 100,
+                maxWidth: isMobile ? 60 : 80,
+                maxHeight: isMobile ? 60 : 80,
                 objectFit: "cover",
                 mr: 2,
+                // transition: "transform 0.3s ease-in-out",
+                // "&:hover": {
+                //   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+                //   transform: "scale(1.5)",
+                // },
               }}
             />
           </Link>
@@ -74,7 +82,10 @@ function NavBar() {
               <NotificationsDropdown />
               <WishlistDropdown />
               <CartDropdown />
-              <ProfileDropdown onClick={togglePopup} />
+              <ProfileDropdown
+                signInSinUpClick={toggleSignInSignUpPopup}
+                logoutClick={toggleLogoutPopup}
+              />
             </Box>
           )}
 
@@ -85,7 +96,15 @@ function NavBar() {
               <CustomDrawer
                 anchor="right"
                 open={drawerOpen}
-                onClose={toggleDrawer}
+                onClose={() => toggleDrawer(false)}
+                signInSinUpClick={() => {
+                  toggleSignInSignUpPopup(); // Toggle popup
+                  toggleDrawer(false); // Close the drawer
+                }}
+                logoutClick={() => {
+                  toggleLogoutPopup(); // Toggle popup
+                  toggleDrawer(false); // Close the drawer
+                }}
               />
             </Box>
           )}
@@ -93,10 +112,17 @@ function NavBar() {
 
         {/* SignInSignUp Dialog */}
         <SignInSignUp
-          isOpen={isPopupOpen}
-          onClose={togglePopup}
+          isOpen={isSignInSignUpPopupOpen}
+          onClose={toggleSignInSignUpPopup}
           isLogin={isLogin}
           toggleForm={() => setIsLogin(!isLogin)}
+        />
+
+        {/* logout Dialog */}
+        <LogoutDialog
+          isOpen={isLogoutPopupOpen}
+          onClose={toggleLogoutPopup}
+          fullScreen={false}
         />
       </AppBar>
     </Box>

@@ -1,5 +1,6 @@
 import React, { useImperativeHandle, useState, forwardRef } from "react";
-import { Backdrop, CircularProgress } from "@mui/material";
+import { Backdrop } from "@mui/material";
+import PropagateLoaders from "../../common/loaders/PropagateLoader.js";
 
 const BackDropLoader = forwardRef((props, ref) => {
   const [open, setOpen] = useState(false);
@@ -15,7 +16,7 @@ const BackDropLoader = forwardRef((props, ref) => {
       sx={(theme) => ({ color: "#fff", zIndex: theme.zIndex.drawer + 1 })}
       open={open}
     >
-      <CircularProgress color="inherit" />
+      <PropagateLoaders loading={true} />
     </Backdrop>
   );
 });

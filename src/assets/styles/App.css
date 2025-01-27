@@ -52,10 +52,10 @@ body {
     margin-right: 16px; /* Add space from the edge */
   }
 }
-
+/* 
 @font-face {
   font-family: "merriweather";
   src: url("/public/fonts/merriweather-italic.woff") format("woff2");
   font-weight: normal;
   font-style: normal;
-}
+} */

@@ -16,45 +16,15 @@ import Typography from "@mui/material/Typography";
 import { CircularProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import message from "../../../constants/message.js";
-import urls from "../../../constants/urls.js";
 import TrendingFlatOutlinedIcon from "@mui/icons-material/TrendingFlatOutlined";
-import {
-  useFetchMenuDropDowns,
-  useFetchNotifications,
-} from "../../../hooks/home.js";
+import { useFetchMenuDropDowns } from "../../../hooks/home.js";
 import MenuTextDropDownPopUpCard from "./MenuTextDropDownPopUpCard.js";
 import Divider from "../../common/divider/Divider.js";
-
-const useStyles = makeStyles({
-  popover: {
-    backgroundColor: "white",
-    boxShadow: "0px 2px 4px rgba(96, 125, 139, 0.5)",
-    border: "1px solid #ddd",
-    fontSize: "90%",
-    padding: "4px 8px",
-    borderRadius: "4px",
-    boxSizing: "border-box",
-    position: "absolute", // Positioning the dropdown absolutely
-    top: "100%", // Align below the AppBar
-    left: 0,
-    // width: "400px", // Set a fixed width for the dropdown
-    zIndex: 1300, // Ensure it appears above other content
-    // width: "max-content",
-    // maxWidth: "calc(100vw - 10px)",
-
-    marginTop: "20px",
-    maxHeight: "500px",
-    minWidth: "400px",
-    maxWidth: "calc(100vw - 15px)",
-    background: "#fff",
-
-    minHeight: "300px",
-    width: "100%",
-  },
-});
+import { TextDropDownUseStyles } from "../../../styles/DropdownStyles.js";
+import PropagateLoaders from "../../common/loaders/PropagateLoader.js";
 
 function MenuTextDropDown({ type }) {
-  const classes = useStyles();
+  const classes = TextDropDownUseStyles();
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { refs, floatingStyles, context } = useFloating({
@@ -216,7 +186,9 @@ function MenuTextDropDown({ type }) {
                   flexDirection: "row",
                   justifyContent: "flex-start",
                   alignItems: "center",
+                  cursor: "pointer",
                 }}
+                onClick={handleClick}
               >
                 <Typography
                   variant="h6"
@@ -262,15 +234,7 @@ function MenuTextDropDown({ type }) {
                 }}
               >
                 {/* Display CircularProgress while loading */}
-                {isLoading && (
-                  <CircularProgress
-                    justifyContent="center" // Aligns grid items to the left
-                    alignItems="center"
-                    textAlign="center"
-                    color="inherit"
-                    size={30}
-                  />
-                )}
+                {isLoading && <PropagateLoaders loading={isLoading} />}
 
                 {/* Error UI */}
                 {!isLoading && error && (
