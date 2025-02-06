@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Box, Card, CardActionArea } from "@mui/material";
+import {
+  Typography,
+  Box,
+  Card,
+  CardActionArea,
+  Container,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { blueGrey } from "@mui/material/colors";
+import { ThemeProvider } from "@mui/material/styles";
+import Theme from "../../theme/Theme";
 
 function SearchPopUpCard({ data, closeDropdown }) {
   const navigate = useNavigate();
@@ -13,6 +21,8 @@ function SearchPopUpCard({ data, closeDropdown }) {
   };
 
   return (
+    // <ThemeProvider theme={Theme}>
+    //   <Container>
     <Card
       elevation="0"
       sx={{ boxShadow: 0, cursor: "pointer", backgroundColor: "#fff" }}
@@ -50,6 +60,8 @@ function SearchPopUpCard({ data, closeDropdown }) {
         </Box>
       </CardActionArea>
     </Card>
+    //   </Container>
+    // </ThemeProvider>
   );
 }
 

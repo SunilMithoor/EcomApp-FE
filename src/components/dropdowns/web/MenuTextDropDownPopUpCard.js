@@ -97,7 +97,7 @@ function MenuTextDropDownPopUpCard({ data, type, closeDropdown }) {
                 <Box
                   sx={{
                     position: "absolute",
-                    color: "whitesmoke",
+                    color: "white",
                     top: 8,
                     left: 8,
                     backgroundColor: red[900],

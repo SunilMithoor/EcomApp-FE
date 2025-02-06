@@ -4,6 +4,7 @@
   flex-direction: column;
   height: auto;
   min-height: 100vh; /* Ensure the container takes the full height of the viewport */
+  font-family: "Raleway, Open Sans, sans-serif";
 }
 
 .App-header {
@@ -19,6 +20,7 @@
   padding: 1rem; /* Add padding for better spacing */
   height: auto; /* Allow height to expand based on content */
   min-height: 0; /* Prevents the container from shrinking */
+  font-family: "Raleway, Open Sans, sans-serif";
 }
 
 /* Scrollbar customization */
@@ -52,10 +54,3 @@ body {
     margin-right: 16px; /* Add space from the edge */
   }
 }
-/* 
-@font-face {
-  font-family: "merriweather";
-  src: url("/public/fonts/merriweather-italic.woff") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-} */

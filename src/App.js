@@ -16,7 +16,6 @@ import Footer from "./components/common/footer/Footer.js";
 import NavBar from "./components/common/navbar/NavBar.js";
 import Orders from "./layouts/orders/Orders.js";
 import { Box } from "@mui/material";
-import BouncingDotsLoader from "./components/common/loaders/BouncingDotsLoader.js";
 import PropagateLoaders from "./components/common/loaders/PropagateLoader.js";
 
 function App() {
