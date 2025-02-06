@@ -48,10 +48,11 @@ function DefaultPage() {
           <Typography
             variant="h4"
             sx={{
+              fontFamily: "Raleway, sans-serif",
               fontWeight: "bold",
               mb: 2,
               textAlign: "left",
-              color: blueGrey[900],
+              color: "#10414b",
             }}
           >
             {message.welcome_msg}
@@ -59,10 +60,11 @@ function DefaultPage() {
           <Typography
             variant="subtitle1"
             sx={{
+              fontFamily: "Open Sans, sans-serif",
               mb: 3,
               lineHeight: 1.8,
               textAlign: "left",
-              color: blueGrey[900],
+              color: "#43676e",
             }}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
@@ -74,6 +76,7 @@ function DefaultPage() {
             variant="contained"
             size="small"
             sx={{
+              fontFamily: "Raleway, sans-serif",
               fontWeight: "bold",
               textTransform: "none",
               bgcolor: "#c09227", // Background color

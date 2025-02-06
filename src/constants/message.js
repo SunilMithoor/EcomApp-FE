@@ -83,8 +83,11 @@ module.exports = {
   accessories: "Accessories",
   learn_more: "Learn More",
   explore_all: (code) => `Explore All ${code}`,
+  explore_item: (code) => `Explore ${code}`,
   new: "New",
   welcome_to: "Welcome to",
   logout_msg: "You are attempting to log out of MG App.",
   logout_confirm: "Are you sure?",
+  categories: "CATEGORIES",
+  reviews: "REVIEWS",
 };

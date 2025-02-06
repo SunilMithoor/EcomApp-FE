@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useMemo } from "react";
-import { makeStyles } from "@mui/styles";
 import {
   useFloating,
   autoUpdate,
@@ -13,7 +12,6 @@ import {
 } from "@floating-ui/react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { CircularProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import message from "../../../constants/message.js";
 import TrendingFlatOutlinedIcon from "@mui/icons-material/TrendingFlatOutlined";
@@ -137,6 +135,7 @@ function MenuTextDropDown({ type }) {
         className="PopoverTrigger"
         onClick={handleClick}
         sx={{
+          fontFamily: "Raleway, sans-serif",
           cursor: "pointer",
           display: "inline-block", // Limits the hover effect to the text
           fontWeight: "bold", // Bold when open

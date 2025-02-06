@@ -4,6 +4,12 @@ import NoData from "../../components/common/nodataavailable/NoDataCustom";
 import { Box, Alert, Typography } from "@mui/material";
 import BackDropLoader from "../../components/common/loaders/BackDropLoader";
 import DefaultPage from "../default/Default";
+import { ThemeProvider } from "@mui/material/styles";
+import Theme from "../../theme/Theme"; // Import your custom theme
+import HomeSwiperSlide from "./HomeSwiperSlide";
+import HomeFeatures from "./HomeFeatures";
+import HomeCategories from "./HomeCategories";
+import HomeReviews from "./HomeReviews";
 
 function Home() {
   const { data, isLoading, error } = useFetchHome();
@@ -23,6 +29,7 @@ function Home() {
   if (data.success === true) {
     homeItems = data.data || {};
   }
+  console.log("isHomeItemsEmpty", homeItems);
 
   // Check if homeItems is empty
   const isHomeItemsEmpty = Object.keys(homeItems).length === 0;
@@ -59,9 +66,17 @@ function Home() {
       {/* Success UI */}
 
       {!isLoading && !error && !isHomeItemsEmpty && (
-        <div>
-          <DefaultPage />
-        </div>
+        // <div>
+        //   <DefaultPage />
+        // </div>
+        <ThemeProvider theme={Theme}>
+          <div style={{ padding: "0rem" }}>
+            <HomeSwiperSlide data={homeItems.sliders} />
+            <HomeFeatures data={homeItems.features} />
+            <HomeCategories data={homeItems.categories} />
+            <HomeReviews data={homeItems.customerReviews} />
+          </div>
+        </ThemeProvider>
       )}
     </Box>
   );
