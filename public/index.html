@@ -5,7 +5,7 @@
   <link rel="icon" href="%PUBLIC_URL%/logo_2.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
+  <meta name="description" content="MG-Trend Treasure" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <title>MG-Trend Treasure</title>
@@ -13,54 +13,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@500;600;700&display=swap"rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Raleway', 'Open Sans',sans-serif;
-    }
-    #loader {
-      border: 5px solid #f3f3f3;
-      border-radius: 50%;
-      border-top: 5px solid #252829;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-    }
-    .center {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-    }
-    @keyframes spin {
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-    #loading-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      width: 100%;
-      background-color: white;
-    }
-  </style>
 </head>
 <body>
-  <div id="loading-container">
-    <div id="loader" class="center"></div>
-  </div>
-  <div id="root" style="display: none;"></div>
-  <script>
-    document.onreadystatechange = function () {
-      if (document.readyState === "complete") {
-        document.querySelector("#loading-container").style.display = "none";
-        document.querySelector("#root").style.display = "block";
-      }
-    };
-  </script>
+  <noscript>MG-Trend Treasure</noscript>
+  <div id="root"></div>
 </body>
 </html>
+
+
