@@ -11,11 +11,10 @@ import {
 } from "@mui/material";
 import {
   Facebook,
-  Twitter,
-  Google,
+  X,
   Instagram,
   LinkedIn,
-  GitHub,
+  YouTube,
   Email,
   Place,
   Fax,
@@ -25,8 +24,10 @@ import message from "../../../constants/message";
 import { LoadingButton } from "@mui/lab";
 import { addSubscriber } from "../../../services/localService/LocalService";
 import { blueGrey } from "@mui/material/colors";
+import { useNavigate } from "react-router-dom";
 
 function Footer() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const [buttonText, setButtonText] = useState("Subscribe");
@@ -36,6 +37,20 @@ function Footer() {
   const [validation, setValidation] = useState({
     email: "",
   });
+
+  function handleClick(itemId) {
+    switch (itemId) {
+      case 1:
+        navigate("/privacy-policy");
+        break;
+      case 2:
+        navigate("/about-us");
+        break;
+
+      default:
+        break;
+    }
+  }
 
   // Handle email input change with validation
   const handleEmailChange = (e) => {
@@ -107,23 +122,54 @@ function Footer() {
           Get connected with us on social networks:
         </Typography>
         <Box>
-          <IconButton color="inherit">
+          <IconButton
+            color="inherit"
+            component="a"
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Facebook />
           </IconButton>
-          <IconButton color="inherit">
-            <Twitter />
+
+          <IconButton
+            color="inherit"
+            component="a"
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <X />
           </IconButton>
-          <IconButton color="inherit">
-            <Google />
-          </IconButton>
-          <IconButton color="inherit">
+
+          <IconButton
+            color="inherit"
+            component="a"
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Instagram />
           </IconButton>
-          <IconButton color="inherit">
+
+          <IconButton
+            color="inherit"
+            component="a"
+            href="https://www.linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <LinkedIn />
           </IconButton>
-          <IconButton color="inherit">
-            <GitHub />
+
+          <IconButton
+            color="inherit"
+            component="a"
+            href="https://www.youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <YouTube />
           </IconButton>
         </Box>
       </Box>
@@ -222,8 +268,8 @@ function Footer() {
             Useful Links
           </Typography>
           <Link
+            href="/about-us"
             textAlign="left"
-            href="#"
             color="inherit"
             underline="hover"
             display="block"
@@ -232,7 +278,7 @@ function Footer() {
             About
           </Link>
           <Link
-            href="#"
+            href="/contact-us"
             color="inherit"
             underline="hover"
             display="block"
@@ -242,7 +288,7 @@ function Footer() {
             Contact Us
           </Link>
           <Link
-            href="#"
+            href="/privacy-policy"
             color="inherit"
             underline="hover"
             display="block"
@@ -252,7 +298,7 @@ function Footer() {
             Privacy Policy
           </Link>
           <Link
-            href="#"
+            href="/terms-condition"
             color="inherit"
             underline="hover"
             display="block"

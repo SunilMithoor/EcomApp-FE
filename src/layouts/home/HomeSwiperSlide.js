@@ -53,10 +53,12 @@ function HomeSwiperSlide({ data }) {
   return (
     <Box
       sx={{
-        width: "100%",
+        width: "100%", // Ensure it takes full width
+        maxWidth: { xs: "calc(100vw - 15px", md: "auto" },
         display: "flex",
         justifyContent: "center",
         position: "relative",
+        padding: { xs: 1, md: 3 }, // Reduce padding for small screens
       }}
     >
       <Swiper
@@ -69,9 +71,12 @@ function HomeSwiperSlide({ data }) {
         parallax={true}
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={"auto"}
-        // mousewheel={true}
-        keyboard={{ enabled: true }}
+        slidesPerView={1} // Ensures full width on mobile
+        breakpoints={{
+          768: {
+            slidesPerView: "auto", // Auto layout for tablets and desktops
+          },
+        }}
         loop={true}
         pagination={{ clickable: true }}
         navigation={true}
@@ -100,14 +105,17 @@ function HomeSwiperSlide({ data }) {
           <SwiperSlide key={item.id} style={{ position: "relative" }}>
             <Card
               sx={{
-                width: "auto",
+                width: "100%", // Ensures full width
+                maxWidth: "100%",
                 height: "auto",
                 borderRadius: 1,
                 overflow: "hidden",
                 backgroundColor: "#FADF8D",
                 display: "flex",
+                flexDirection: { xs: "column", md: "row" }, // Stack items vertically on mobile
                 alignItems: "center",
-                padding: 1,
+                justifyContent: "center", // Ensures center alignment
+                padding: { xs: 1, md: 3 }, // Reduce padding on small screens
               }}
             >
               <CardContent
@@ -122,9 +130,15 @@ function HomeSwiperSlide({ data }) {
                 }}
               >
                 <Box
-                  display="flex"
-                  flexDirection={{ xs: "column", md: "row" }}
-                  gap={2}
+                  sx={{
+                    width: "100%", // Ensures it takes full width
+                    display: "flex",
+                    flexDirection: { xs: "column", md: "row" },
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: { xs: 1, md: 3 },
+                    boxSizing: "border-box", // Prevents unwanted spacing issues
+                  }}
                 >
                   <Box
                     sx={{
@@ -180,11 +194,13 @@ function HomeSwiperSlide({ data }) {
                       </MuiButton>
                     </div>
                   </Box>
+
                   <h3 style={{ width: 200 }}>{}</h3>
+
                   <Box
                     sx={{
-                      maxHeight: 350,
-                      maxWidth: 350,
+                      maxHeight: { xs: "250px", md: "350px" }, // Reduce height for mobile
+                      maxWidth: { xs: "100%", md: 350 }, // Ensure full width on mobile
                       display: "flex",
                       flexDirection: "column",
                       flexGrow: 1, // Ensures the image container fills the available space
@@ -197,6 +213,7 @@ function HomeSwiperSlide({ data }) {
                         transform: "scale(1.1)", // Zoom-in effect on hover (increase scale value for stronger zoom)
                       },
                     }}
+                    data-swiper-parallax-scale="0.3"
                   >
                     {/* Show Skeleton while the image is loading */}
                     {loadingStates[index] && (
