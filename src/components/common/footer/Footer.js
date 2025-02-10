@@ -30,27 +30,13 @@ function Footer() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const [buttonText, setButtonText] = useState("Subscribe");
+  const [buttonText, setButtonText] = useState(message.subscribe);
   const [loading, setLoading] = useState(false);
   const [buttonColor, setButtonColor] = useState("#d4a32b");
   const [error, setError] = useState(false);
   const [validation, setValidation] = useState({
     email: "",
   });
-
-  function handleClick(itemId) {
-    switch (itemId) {
-      case 1:
-        navigate("/privacy-policy");
-        break;
-      case 2:
-        navigate("/about-us");
-        break;
-
-      default:
-        break;
-    }
-  }
 
   // Handle email input change with validation
   const handleEmailChange = (e) => {
@@ -75,7 +61,7 @@ function Footer() {
       setButtonText("Please enter a valid email address!");
       setTimeout(() => {
         setButtonColor("#d4a32b"); // Reset button color after 3 seconds
-        setButtonText("Subscribe");
+        setButtonText(message.subscribe);
       }, 3000);
       return;
     }
@@ -94,7 +80,7 @@ function Footer() {
     }
     setTimeout(() => {
       setButtonColor("#d4a32b"); // Reset button color after 3 seconds
-      setButtonText("Subscribe");
+      setButtonText(message.subscribe);
     }, 3000);
   };
 
@@ -102,6 +88,8 @@ function Footer() {
     <Box
       sx={{
         bgcolor: "#1c2431",
+        // bgcolor: "#2e475d",
+
         color: "white",
       }}
     >
@@ -112,8 +100,8 @@ function Footer() {
         alignItems={"center"}
         sx={{
           padding: "1rem 1rem",
-          // bgcolor: "#6451ce",
-          bgcolor: blueGrey[900],
+          bgcolor: "#2e475d",
+          // bgcolor: blueGrey[900],
           textAlign: "start",
           mb: 2,
         }}
@@ -214,7 +202,7 @@ function Footer() {
 
           <CardMedia
             component="img"
-            image={require("../../../assets/logo/logo_new_16.png")}
+            image={require("../../../assets/logo/mg_app_logo_trans.png")}
             alt={"Image"}
             loading="lazy"
             sx={{
@@ -514,6 +502,7 @@ function Footer() {
       <Box
         sx={{
           bgcolor: "#151b29",
+          // bgcolor: "#2e475d",
           textAlign: "center",
           padding: "0.5rem 0.5rem",
         }}

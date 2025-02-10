@@ -1,0 +1,58 @@
+{
+  "success": true,
+  "message": "Phone no list",
+  "data": [
+    {
+      "id": 1,
+      "title": "U.S. and Canada",
+      "data": [
+        { "id": 1, "language": "English", "phoneNo": "+1 XXX XXX XXXX" },
+        { "id": 2, "language": "Spanish", "phoneNo": "+1 XXX XXX XXXX" }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Germany",
+      "data": [
+        { "id": 1, "language": "English", "phoneNo": "+1 XXX XXX XXXX" },
+        { "id": 2, "language": "German", "phoneNo": "+1 XXX XXX XXXX" }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Denmark",
+      "data": [{ "id": 1, "language": "English", "phoneNo": "+1 XXX XXX XXXX" }]
+    },
+    {
+      "id": 4,
+      "title": "Luxembourg",
+      "data": [
+        { "id": 1, "language": "English", "phoneNo": "+1 XXX XXX XXXX" },
+        { "id": 2, "language": "German", "phoneNo": "+1 XXX XXX XXXX" },
+        { "id": 3, "language": "French", "phoneNo": "+1 XXX XXX XXXX" }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Switzerland",
+      "data": [
+        { "id": 1, "language": "English", "phoneNo": "+1 XXX XXX XXXX" },
+        { "id": 2, "language": "German", "phoneNo": "+1 XXX XXX XXXX" },
+        { "id": 3, "language": "French", "phoneNo": "+1 XXX XXX XXXX" }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Spain",
+      "data": [
+        { "id": 1, "language": "English", "phoneNo": "+1 XXX XXX XXXX" },
+        { "id": 2, "language": "Spanish", "phoneNo": "+1 XXX XXX XXXX" }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Portugal",
+      "data": [{ "id": 1, "language": "English", "phoneNo": "+1 XXX XXX XXXX" }]
+    }
+  ]
+}

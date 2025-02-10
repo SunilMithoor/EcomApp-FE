@@ -14,6 +14,7 @@ import Notifications from "./layouts/notifications/Notifications.js";
 import Wishlist from "./layouts/wishlist/Wishlist.js";
 import PrivacyPolicy from "./layouts/others/PrivacyPolicy.js";
 import TermsCondition from "./layouts/others/TermsCondition.js";
+import ContactUs from "./layouts/others/ContactUs.js";
 
 import Footer from "./components/common/footer/Footer.js";
 import NavBar from "./components/common/navbar/NavBar.js";
@@ -71,6 +72,7 @@ function App() {
                   <Route path="/accessories/:id" element={<Accessories />} />
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   <Route path="/terms-condition" element={<TermsCondition />} />
+                  <Route path="/contact-us" element={<ContactUs />} />
                   {/* Define other routes that you need*/}
                 </Routes>
               </main>
@@ -87,3 +89,5 @@ function App() {
 }
 
 export default App;
+
+

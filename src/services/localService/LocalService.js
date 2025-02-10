@@ -6,6 +6,8 @@ import wishlistData from "../../staticdata/wishlist.json";
 import homeData from "../../staticdata/home.json";
 import menuDropdownData from "../../staticdata/menu_dropdown.json";
 import menuData from "../../staticdata/menu.json";
+import contactUsPhoneData from "../../staticdata/contactusphone.json";
+import contactUsAddressData from "../../staticdata/contactusaddress.json";
 
 // export const fetchCartItems = () => {
 //   return axios
@@ -202,6 +204,50 @@ function fetchMenuDropDowns() {
   });
 }
 
+const contactViaEmailSuccessResponse = {
+  success: true,
+  message: "Thank you! Will connect with you shortly!!",
+};
+const contactViaEmailFailureResponse = {
+  success: false,
+  message: "We’re sorry! Unable to send.",
+};
+function contactViaEmail() {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        resolve(contactViaEmailSuccessResponse); // Simulate axios response with static JSON data
+      }, 3000);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+function fetchContactUsPhoneNos() {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        resolve(contactUsPhoneData); // Simulate axios response with static JSON data
+      }, 3000);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+function fetchContactUsAddress() {
+  return new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        resolve(contactUsAddressData); // Simulate axios response with static JSON data
+      }, 3000);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
 export {
   addSubscriber,
   fetchCartItems,
@@ -214,4 +260,7 @@ export {
   fetchSearch,
   fetchWishlists,
   fetchMenuDropDowns,
+  contactViaEmail,
+  fetchContactUsPhoneNos,
+  fetchContactUsAddress,
 };

@@ -12,9 +12,9 @@ function NoDataCustom({ message = messages.no_data_available }) {
       sx={{ textAlign: "center", padding: 2 }}
     >
       <img
-        src="/svgs/no_data_available.svg"
+        src={require("../../../assets/svgs/no_data.svg").default}
         alt="No Data"
-        style={{ minWidth: 250, minHeight: 250, marginBottom: 16 }} // Style the image
+        style={{ minWidth: 250, minHeight: 250, marginBottom: 2 }} // Style the image
       />
       <Typography variant="h6" color="textSecondary">
         {message}
