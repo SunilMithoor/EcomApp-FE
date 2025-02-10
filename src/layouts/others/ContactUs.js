@@ -175,11 +175,12 @@ function ContactUs() {
         >
           <Card
             sx={{
-              minHeight: "280px",
-              minWidth: "400px",
+              minHeight: { xs: "auto", sm: "280px" },
+              minWidth: { xs: "auto", sm: "400px" },
               width: "100%",
               textAlign: "center",
-              padding: "10px",
+              paddingX: "2px",
+              paddingY: "10px",
               boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.5)",
             }}
           >
@@ -241,11 +242,12 @@ function ContactUs() {
           </Card>
           <Card
             sx={{
-              minHeight: "280px",
-              minWidth: "400px",
+              minHeight: { xs: "auto", sm: "280px" },
+              minWidth: { xs: "auto", sm: "400px" },
               width: "100%",
               textAlign: "center",
-              padding: "10px",
+              paddingX: "2px",
+              paddingY: "10px",
               boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.5)",
             }}
           >
