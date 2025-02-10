@@ -551,11 +551,11 @@ const PrivacyPolicy = () => {
             <p>
               By visiting this page on our website:{" "}
               <a
-                href="https://www.mgapp.com/contact-us"
+                href="/contact-us"
                 rel="external nofollow noopener"
                 target="_blank"
               >
-                https://www.mgapp.com/contact-us
+                Contact Us
               </a>
             </p>
           </li>

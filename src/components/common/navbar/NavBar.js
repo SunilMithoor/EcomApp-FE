@@ -47,7 +47,7 @@ function NavBar() {
           <Link to="/">
             <CardMedia
               component="img"
-              image={require("../../../assets/logo/logo_new_20.png")}
+              image={require("../../../assets/logo/mg_app_brand_trans.png")}
               alt="Logo"
               sx={{
                 cursor: "pointer",

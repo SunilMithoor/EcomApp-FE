@@ -90,4 +90,10 @@ module.exports = {
   logout_confirm: "Are you sure?",
   categories: "CATEGORIES",
   reviews: "REVIEWS",
+  send: "Send",
+  subscribe: "Subscribe",
+  address: "Address",
+  phone: "Phone",
+  call_us_msg: "Call us using one of our local numbers",
+  check_office_locations: "Check our office locations",
 };
