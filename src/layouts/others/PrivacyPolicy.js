@@ -110,11 +110,11 @@ const PrivacyPolicy = () => {
             <p>
               <strong>Website</strong> refers to MG APP, accessible from{" "}
               <a
-                href="https://www.mgapp.com"
+                href="https://mg-app-23590.web.app/"
                 rel="external nofollow noopener"
                 target="_blank"
               >
-                https://www.mgapp.com
+                https://mg-app-23590.web.app
               </a>
             </p>
           </li>
