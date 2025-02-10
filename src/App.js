@@ -12,6 +12,9 @@ import Cart from "./layouts/cart/Cart.js";
 import Profile from "./layouts/profile/Profile.js";
 import Notifications from "./layouts/notifications/Notifications.js";
 import Wishlist from "./layouts/wishlist/Wishlist.js";
+import PrivacyPolicy from "./layouts/others/PrivacyPolicy.js";
+import TermsCondition from "./layouts/others/TermsCondition.js";
+
 import Footer from "./components/common/footer/Footer.js";
 import NavBar from "./components/common/navbar/NavBar.js";
 import Orders from "./layouts/orders/Orders.js";
@@ -66,7 +69,8 @@ function App() {
                   <Route path="/wearables/:id" element={<Wearables />} />
                   <Route path="/audio/:id" element={<Audio />} />
                   <Route path="/accessories/:id" element={<Accessories />} />
-
+                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                  <Route path="/terms-condition" element={<TermsCondition />} />
                   {/* Define other routes that you need*/}
                 </Routes>
               </main>

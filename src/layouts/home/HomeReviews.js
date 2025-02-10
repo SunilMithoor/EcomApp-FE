@@ -233,6 +233,7 @@ function HomeReviews({ data }) {
         <Modal
           open={isModalOpen}
           onClose={handleCloseModal}
+          disableAutoFocus={true}
           sx={{
             display: "flex",
             alignItems: "center",
@@ -245,9 +246,10 @@ function HomeReviews({ data }) {
               width: "90%",
               maxWidth: 700,
               bgcolor: "background.paper",
-              boxShadow: 24,
+              boxShadow: 1,
               p: 4,
-              borderRadius: 2,
+              borderRadius: 1,
+              outline: "none",
             }}
           >
             <IconButton
@@ -278,7 +280,7 @@ function HomeReviews({ data }) {
                               width: "100%",
                               maxHeight: "300px",
                               objectFit: "contain",
-                              borderRadius: "8px",
+                              borderRadius: "2px",
                             }}
                           />
                         </Box>
