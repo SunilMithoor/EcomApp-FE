@@ -20,13 +20,14 @@ import { LoadingButton } from "@mui/lab";
 import { contactViaEmail } from "../../services/localService/LocalService";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import ContactUsPhoneNos from "./ContactUsPhoneNos";
-import ContactUsAlternatingLayout from "./ContactUsAlternatingLayout";
+import ContactUsAddress from "./ContactUsAddress";
 import {
   useFetchContactUsPhoneNos,
   useFetchContactUsAddress,
 } from "../../hooks/useFetchContactUs";
 import PropagateLoaders from "../../components/common/loaders/PropagateLoader";
 import NoData from "../../components/common/nodataavailable/NoDataCustom";
+import ContactUsMap from "./ContactUsMap";
 
 function ContactUs() {
   const [chatOpen, setChatOpen] = useState(false);
@@ -345,6 +346,21 @@ function ContactUs() {
         <Box
           sx={{
             backgroundColor: "#f5f5f5",
+            marginTop: 10,
+            marginBottom: 0,
+            height: "auto",
+            width: "100%",
+            minHeight: "300px",
+            boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.5)",
+            borderRadius: "5px",
+          }}
+        >
+          <ContactUsMap />
+        </Box>
+
+        <Box
+          sx={{
+            backgroundColor: "#f5f5f5",
             marginTop: "20px",
             height: "auto",
             width: "100%",
@@ -392,7 +408,7 @@ function ContactUs() {
           {!isContactUsAddressLoading &&
             !contactUsAddressError &&
             contactUsAddressItems.length > 0 && (
-              <ContactUsAlternatingLayout data={contactUsAddressItems} />
+              <ContactUsAddress data={contactUsAddressItems} />
             )}
         </Box>
 

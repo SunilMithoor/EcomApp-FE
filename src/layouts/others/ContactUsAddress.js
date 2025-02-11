@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Typography, Box, Grid2, Skeleton } from "@mui/material";
-import { blueGrey, red } from "@mui/material/colors";
+import { blueGrey } from "@mui/material/colors";
 import messages from "../../constants/message";
+import "leaflet/dist/leaflet.css";
 
-function ContactUsAlternatingLayout({ data }) {
+function ContactUsAddress({ data }) {
   const [items, setDataItems] = useState(Array.isArray(data) ? data : []);
 
   useEffect(() => {
@@ -377,4 +378,4 @@ function ContactUsAlternatingLayout({ data }) {
   );
 }
 
-export default ContactUsAlternatingLayout;
+export default ContactUsAddress;
