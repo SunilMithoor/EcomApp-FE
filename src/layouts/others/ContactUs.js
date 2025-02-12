@@ -351,11 +351,40 @@ function ContactUs() {
             height: "auto",
             width: "100%",
             minHeight: "300px",
-            boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.5)",
-            borderRadius: "5px",
+            boxShadow: "0px 0px 5px 0px rgba(0,0,0,0.5)",
+            borderRadius: "2px",
           }}
         >
-          <ContactUsMap />
+          {/* Loader */}
+          <PropagateLoaders loading={isContactUsAddressLoading} />
+
+          {/* Error UI */}
+          {!isContactUsAddressLoading && contactUsAddressError && (
+            <Box display="flex" justifyContent="center" alignItems="center">
+              <Alert severity="error">{contactUsAddressData.message}</Alert>
+            </Box>
+          )}
+
+          {/* No Data UI */}
+          {!isContactUsAddressLoading &&
+            !contactUsAddressError &&
+            contactUsAddressItems.length === 0 && (
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                height="300px"
+              >
+                <NoData message={contactUsAddressData.message} />
+              </Box>
+            )}
+
+          {/* Success UI */}
+          {!isContactUsAddressLoading &&
+            !contactUsAddressError &&
+            contactUsAddressItems.length > 0 && (
+              <ContactUsMap data={contactUsAddressItems} />
+            )}
         </Box>
 
         <Box

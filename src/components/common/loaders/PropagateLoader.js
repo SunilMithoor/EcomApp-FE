@@ -2,23 +2,19 @@ import { PropagateLoader } from "react-spinners";
 
 const cssProperties = {
   display: "flex",
-  justifyContent: "center", // Center horizontally
-  alignItems: "center", // Center vertically
-  textAlign: "center", // Center text alignment
-  borderColor: "red", // Border color for the loader
+  justifyContent: "center",
+  alignItems: "center",
+  textAlign: "center",
+  borderColor: "red",
 };
 
 function PropagateLoaders({ loading }) {
   return (
-    <div
-      className="sweet-loading"
-      style={{ justifyContent: "center", alignItems: "center", padding: 10 }}
-    >
+    <div className="sweet-loading" style={cssProperties}>
       <PropagateLoader
-        color="#252829" // Loader color
+        color="#252829"
         loading={loading}
-        cssOverride={cssProperties}
-        size={15} // Size of the loader
+        size={15}
         aria-label="Loading Spinner"
         data-testid="loader"
       />
