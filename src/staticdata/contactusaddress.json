@@ -4,89 +4,107 @@
   "data": [
     {
       "id": 1,
-      "name": "Dublin (European HQ)",
-      "Address": "1 Sir John Rogerson's Quay, Dublin 2",
+      "name": "Bangalore (Karnataka Office)",
+      "Address": "MG Road, Bangalore, Karnataka 560001",
+      "latitude": 12.9716,
+      "longitude": 77.5946,
       "phoneNoData": [
-        { "language": "English", "phoneNo": "+1 XXX XXX XXXX" },
-        { "language": "Spanish", "phoneNo": "+1 XXX XXX XXXX" }
-      ],
-      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fimages%2FBogota.jpg?alt=media&token=8eb98c26-654c-4ee2-a054-c04e891c4b1e"
-    },
-    {
-      "id": 2,
-      "name": "Singapore (Asia-Pacific HQ)",
-      "Address": "60 Anson Road,Mapletree Anson, #10-03 Singapore 079914",
-      "phoneNoData": [{ "language": "English", "phoneNo": "+1 XXX XXX XXXX" }],
-      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fimages%2FLondon.jpeg?alt=media&token=2da21125-e369-459a-b68f-c65b800603cb"
-    },
-    {
-      "id": 3,
-      "name": "Sydney (Australia Office)",
-      "Address": "20 Hunter St, Level 7,Sydney NSW 2000",
-      "phoneNoData": [
-        { "language": "English", "phoneNo": "+1 XXX XXX XXXX" },
-        { "language": "German", "phoneNo": "+1 XXX XXX XXXX" },
-        { "language": "French", "phoneNo": "+1 XXX XXX XXXX" }
+        { "language": "English", "phoneNo": "+91 XXX XXX XXXX" },
+        { "language": "Kannada", "phoneNo": "+91 XXX XXX XXXX" },
+        { "language": "Hindi", "phoneNo": "+91 XXX XXX XXXX" }
       ],
       "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fimages%2FToronto.jpeg?alt=media&token=8383ecf7-ccba-43cd-9409-6729c72b8553"
     },
     {
-      "id": 4,
-      "name": "Tokyo (Japan Office)",
-      "Address": "4-1, Marunouchi 1-chome,Chiyoda City, Tokyo 100-0005, Japan",
+      "id": 2,
+      "name": "Delhi (Delhi Office)",
+      "Address": "Connaught Place, New Delhi, Delhi 110001",
+      "latitude": 28.6315,
+      "longitude": 77.2167,
+      "phoneNoData": [{ "language": "English", "phoneNo": "+91 XXX XXX XXXX" }],
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fimages%2FLondon.jpeg?alt=media&token=2da21125-e369-459a-b68f-c65b800603cb"
+    },
+    {
+      "id": 3,
+      "name": "Mumbai (Maharashtra Office)",
+      "Address": "Bandra Kurla Complex, Mumbai, Maharashtra 400051",
+      "latitude": 19.07,
+      "longitude": 72.87,
       "phoneNoData": [
-        { "language": "English", "phoneNo": "+1 XXX XXX XXXX" },
-        { "language": "German", "phoneNo": "+1 XXX XXX XXXX" },
-        { "language": "French", "phoneNo": "+1 XXX XXX XXXX" }
+        { "language": "English", "phoneNo": "+91 XXX XXX XXXX" },
+        { "language": "Hindi", "phoneNo": "+91 XXX XXX XXXX" }
+      ],
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fimages%2FBogota.jpg?alt=media&token=8eb98c26-654c-4ee2-a054-c04e891c4b1e"
+    },
+    {
+      "id": 4,
+      "name": "Chennai (Tamil Nadu Office)",
+      "Address": "Anna Salai, Chennai, Tamil Nadu 600002",
+      "latitude": 13.0827,
+      "longitude": 80.2707,
+      "phoneNoData": [
+        { "language": "English", "phoneNo": "+91 XXX XXX XXXX" },
+        { "language": "Tamil", "phoneNo": "+91 XXX XXX XXXX" },
+        { "language": "Hindi", "phoneNo": "+91 XXX XXX XXXX" }
       ],
       "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fimages%2Fdublin.jpg?alt=media&token=71b44976-98da-42ee-a015-8608a9941164"
     },
     {
       "id": 5,
-      "name": "Berlin (Berlin Office)",
-      "Address": "HubSpot Germany GmbH, AM Postbahnhof 17, 10243 Berlin",
+      "name": "Hyderabad (Telangana Office)",
+      "latitude": 17.385,
+      "longitude": 78.4867,
+      "Address": "Hitech City, Hyderabad, Telangana 500081",
       "phoneNoData": [
-        { "language": "English", "phoneNo": "+1 XXX XXX XXXX" },
-        { "language": "German", "phoneNo": "+1 XXX XXX XXXX" }
+        { "language": "English", "phoneNo": "+91 XXX XXX XXXX" },
+        { "language": "Telugu", "phoneNo": "+91 XXX XXX XXXX" }
       ],
       "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fimages%2Fghent.jpg?alt=media&token=49f63c64-5c05-4cbb-b99a-af679bc449ae"
     },
     {
       "id": 6,
-      "name": "New York (US Office)",
-      "Address": "405 Lexington Ave, New York, NY 10174, USA",
+      "name": "Pune (Maharashtra Office)",
+      "Address": "Hinjewadi, Pune, Maharashtra 411057",
+      "latitude": 18.5972,
+      "longitude": 73.7187,
       "phoneNoData": [
-        { "language": "English", "phoneNo": "+1 XXX XXX XXXX" },
-        { "language": "Spanish", "phoneNo": "+1 XXX XXX XXXX" }
+        { "language": "English", "phoneNo": "+91 XXX XXX XXXX" },
+        { "language": "Marathi", "phoneNo": "+91 XXX XXX XXXX" }
       ],
       "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fimages%2Fhubspot-berlin.jpeg?alt=media&token=e86c7c8c-fc6e-4331-b2ae-c563cf6561b5"
     },
     {
       "id": 7,
-      "name": "Toronto (Canada Office)",
-      "Address": "100 King St W, Toronto, ON M5X 1A9, Canada",
+      "name": "Kolkata (West Bengal Office)",
+      "Address": "Park Street, Kolkata, West Bengal 700016",
+      "latitude": 22.555,
+      "longitude": 88.3493,
       "phoneNoData": [
-        { "language": "English", "phoneNo": "+1 XXX XXX XXXX" },
-        { "language": "French", "phoneNo": "+1 XXX XXX XXXX" }
+        { "language": "English", "phoneNo": "+91 XXX XXX XXXX" },
+        { "language": "Bengali", "phoneNo": "+91 XXX XXX XXXX" }
       ],
       "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fimages%2FLondon.jpeg?alt=media&token=2da21125-e369-459a-b68f-c65b800603cb"
     },
     {
       "id": 8,
-      "name": "Paris (France Office)",
-      "Address": "50 Avenue des Champs-Élysées, 75008 Paris, France",
+      "name": "Ahmedabad (Gujarat Office)",
+      "Address": "SG Highway, Ahmedabad, Gujarat 380015",
+      "latitude": 23.0301,
+      "longitude": 72.517,
       "phoneNoData": [
-        { "language": "English", "phoneNo": "+1 XXX XXX XXXX" },
-        { "language": "French", "phoneNo": "+1 XXX XXX XXXX" }
+        { "language": "English", "phoneNo": "+91 XXX XXX XXXX" },
+        { "language": "Gujarati", "phoneNo": "+91 XXX XXX XXXX" }
       ],
       "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fimages%2FBogota.jpg?alt=media&token=8eb98c26-654c-4ee2-a054-c04e891c4b1e"
     },
     {
       "id": 9,
-      "name": "Mumbai (India Office)",
-      "Address": "Bandra Kurla Complex, Mumbai, Maharashtra 400051, India",
+      "name": "Jaipur (Rajasthan Office)",
+      "Address": "MI Road, Jaipur, Rajasthan 302001",
+      "latitude": 26.9124,
+      "longitude": 75.7873,
       "phoneNoData": [
-        { "language": "English", "phoneNo": "+1 XXX XXX XXXX" },
+        { "language": "English", "phoneNo": "+91 XXX XXX XXXX" },
         { "language": "Hindi", "phoneNo": "+91 XXX XXX XXXX" }
       ],
       "imgUrl": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-efcf0.appspot.com/o/images%2Fimages%2Fdublin.jpg?alt=media&token=71b44976-98da-42ee-a015-8608a9941164"

@@ -12,16 +12,23 @@ import SendIcon from "@mui/icons-material/Send";
 import { grey } from "@mui/material/colors";
 
 function ChatBot({ chatOpen, setChatOpen }) {
+  const time = new Date().toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    // second: "2-digit",
+    hour12: true,
+  });
+
   const [messages, setMessages] = useState([
     {
       sender: "bot",
       text: "👋 Want to get in touch? I'm here to help.",
-      time: new Date().toLocaleTimeString(),
+      time: time,
     },
     {
       sender: "bot",
       text: "Ask me a question or select an option below:",
-      time: new Date().toLocaleTimeString(),
+      time: time,
     },
   ]);
   const [input, setInput] = useState("");
@@ -45,7 +52,7 @@ function ChatBot({ chatOpen, setChatOpen }) {
         {
           sender: "user",
           text: input.trim(),
-          time: new Date().toLocaleTimeString(),
+          time: time,
         },
       ]);
       setInput("");
@@ -56,7 +63,7 @@ function ChatBot({ chatOpen, setChatOpen }) {
           {
             sender: "bot",
             text: "This is a random bot response.",
-            time: new Date().toLocaleTimeString(),
+            time: time,
           },
         ]);
         setLoading(false);
@@ -76,7 +83,7 @@ function ChatBot({ chatOpen, setChatOpen }) {
               sender: "user",
               text: "",
               image: reader.result,
-              time: new Date().toLocaleTimeString(),
+              time: time,
             },
           ]);
           setTimeout(() => {
@@ -89,7 +96,7 @@ function ChatBot({ chatOpen, setChatOpen }) {
               {
                 sender: "bot",
                 text: "Thanks for the image! How can I assist you further?",
-                time: new Date().toLocaleTimeString(),
+                time: time,
               },
             ]);
             setLoading(false);
